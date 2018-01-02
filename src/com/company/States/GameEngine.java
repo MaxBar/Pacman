@@ -1,12 +1,16 @@
 package com.company.States;
 
 import com.company.MenuState;
+import com.googlecode.lanterna.terminal.Terminal;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameEngine {
     private ArrayList<GameState> states;
     private boolean running;
+    Terminal terminal;
     
     public void init() {
         states = new ArrayList<>();
@@ -14,7 +18,7 @@ public class GameEngine {
         System.out.printf("GameEngine init\n");
     }
     
-    public void changeState(MenuState state) {
+    public void changeState(GameState state) throws IOException{
         while(!states.isEmpty()) {
             states.clear();
         }
@@ -25,7 +29,7 @@ public class GameEngine {
         System.out.printf("GameEngine changestate");
     }
     
-    public void pushState(GameState state) {
+    public void pushState(GameState state) throws IOException {
         states.add(state);
         states.get(states.size() - 1).init();
     }
@@ -40,11 +44,11 @@ public class GameEngine {
         states.get(states.size() - 1).handleEvents(this);
     }
     
-    public void update() {
+    public void update() throws IOException {
         states.get(states.size() - 1).update(this);
     }
     
-    public void draw() {
+    public void draw() throws IOException{
         states.get(states.size() - 1).draw(this);
     }
     

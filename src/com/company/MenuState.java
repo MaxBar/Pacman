@@ -2,14 +2,12 @@ package com.company;
 
 import java.io.IOException;
 import com.company.States.*;
-import static com.company.InitState.getTerminal;
 
 public class MenuState extends GameState {
     private static MenuState menuState = null;
 
     @Override
-    public void init() {
-
+    public void init() throws IOException {
     }
 
     @Override
@@ -18,13 +16,28 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void update(GameEngine game) {
-
+    public void update(GameEngine game) throws IOException {
+        InitState.getTerminal().enterPrivateMode();
+        InitState.getTerminal().setCursorPosition(10,10);
+        InitState.getTerminal().putCharacter('M');
+        InitState.getTerminal().putCharacter('e');
+        InitState.getTerminal().putCharacter('n');
+        InitState.getTerminal().putCharacter('u');
+        InitState.getTerminal().setCursorPosition(10, 11);
+        InitState.getTerminal().putCharacter('P');
+        InitState.getTerminal().putCharacter('l');
+        InitState.getTerminal().putCharacter('a');
+        InitState.getTerminal().putCharacter('y');
+        InitState.getTerminal().setCursorPosition(10, 12);
+        InitState.getTerminal().putCharacter('Q');
+        InitState.getTerminal().putCharacter('u');
+        InitState.getTerminal().putCharacter('i');
+        InitState.getTerminal().putCharacter('t');
     }
 
     @Override
-    public void draw(GameEngine game) {
-
+    public void draw(GameEngine game) throws IOException {
+        InitState.getTerminal().flush();
     }
 
     protected MenuState() {
@@ -36,25 +49,5 @@ public class MenuState extends GameState {
             menuState = new MenuState();
         }
         return menuState;
-    }
-    
-    public void writeMenu() throws IOException {
-        getTerminal().enterPrivateMode();
-        getTerminal().setCursorPosition(10,10);
-        getTerminal().putCharacter('M');
-        getTerminal().putCharacter('e');
-        getTerminal().putCharacter('n');
-        getTerminal().putCharacter('u');
-        getTerminal().setCursorPosition(10, 11);
-        getTerminal().putCharacter('P');
-        getTerminal().putCharacter('l');
-        getTerminal().putCharacter('a');
-        getTerminal().putCharacter('y');
-        getTerminal().setCursorPosition(10, 12);
-        getTerminal().putCharacter('Q');
-        getTerminal().putCharacter('u');
-        getTerminal().putCharacter('i');
-        getTerminal().putCharacter('t');
-        getTerminal().flush();
     }
 }

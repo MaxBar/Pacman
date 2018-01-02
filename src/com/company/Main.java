@@ -13,7 +13,7 @@ public class Main {
         
         game.changeState(MenuState.getInstance());
         
-        while(game.Running()) {
+        while(game.running()) {
             game.handleEvents();
             game.update();
             game.draw();

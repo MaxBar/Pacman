@@ -1,5 +1,7 @@
 package com.company.States;
 
+import com.company.MenuState;
+
 import java.util.ArrayList;
 
 public class GameEngine {
@@ -12,7 +14,7 @@ public class GameEngine {
         System.out.printf("GameEngine init\n");
     }
     
-    public void changeState(GameState state) {
+    public void changeState(MenuState state) {
         while(!states.isEmpty()) {
             states.clear();
         }
@@ -46,7 +48,7 @@ public class GameEngine {
         states.get(states.size() - 1).draw(this);
     }
     
-    boolean running() {
+    public boolean running() {
         return running;
     }
     

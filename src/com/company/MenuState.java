@@ -1,12 +1,32 @@
 package com.company;
 
 import java.io.IOException;
-
+import com.company.States.*;
 import static com.company.InitState.getTerminal;
 
 public class MenuState extends GameState {
     private static MenuState menuState = null;
-    
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void handleEvents(GameEngine game) {
+
+    }
+
+    @Override
+    public void update(GameEngine game) {
+
+    }
+
+    @Override
+    public void draw(GameEngine game) {
+
+    }
+
     protected MenuState() {
     
     }

@@ -1,11 +1,12 @@
 package com.company;
 
 import com.company.States.GameEngine;
+import com.company.States.GameState;
 
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-public class PlayState {
+public class PlayState extends GameState {
     private static PlayState playState = null;
 
     @Override
@@ -29,7 +30,7 @@ public class PlayState {
     }
     public static PlayState getInstance(){
         if(playState == null){
-            playState = new MenuState();
+            playState = new PlayState();
         }
         return playState;
     }

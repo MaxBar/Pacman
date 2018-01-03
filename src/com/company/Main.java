@@ -18,5 +18,6 @@ public class Main {
             game.update();
             game.draw();
         }
+        Board.getTerminal().exitPrivateMode();
     }
 }

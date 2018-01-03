@@ -40,7 +40,7 @@ public class GameEngine {
     }
     
     // Kallar på nuvarande states handleEvents
-    public void handleEvents() {
+    public void handleEvents() throws IOException {
         states.get(states.size() - 1).handleEvents(this);
     }
     

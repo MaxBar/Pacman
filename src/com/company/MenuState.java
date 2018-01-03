@@ -2,6 +2,8 @@ package com.company;
 
 import java.io.IOException;
 import com.company.States.*;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 
 public class MenuState extends GameState {
     private static MenuState menuState = null;
@@ -28,8 +30,27 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void handleEvents(GameEngine game) {
+    public void handleEvents(GameEngine game) throws IOException {
+        KeyStroke key = Board.getTerminal().readInput();
 
+        switch(key.getKeyType()) {
+            case Escape:
+                game.quit();
+                break;
+            case EOF:
+                game.quit();
+                break;
+            case Character:
+                switch (key.getCharacter()) {
+                    case 'p':
+                        game.changeState(PlayState.getInstance());
+                        break;
+                    case 'q':
+                        System.out.println("wtf");
+                        game.quit();
+                        break;
+                }
+        }
     }
 
     @Override

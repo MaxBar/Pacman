@@ -1,6 +1,5 @@
 package com.company;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 public class PlayState {

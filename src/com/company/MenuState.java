@@ -8,16 +8,6 @@ public class MenuState extends GameState {
 
     @Override
     public void init() throws IOException {
-    }
-
-    @Override
-    public void handleEvents(GameEngine game) {
-
-    }
-
-    @Override
-    public void update(GameEngine game) throws IOException {
-        Board.getTerminal().enterPrivateMode();
         Board.getTerminal().enterPrivateMode();
         Board.getTerminal().setCursorPosition(10,10);
         Board.getTerminal().putCharacter('M');
@@ -34,6 +24,15 @@ public class MenuState extends GameState {
         Board.getTerminal().putCharacter('u');
         Board.getTerminal().putCharacter('i');
         Board.getTerminal().putCharacter('t');
+    }
+
+    @Override
+    public void handleEvents(GameEngine game) {
+
+    }
+
+    @Override
+    public void update(GameEngine game) throws IOException {
     }
 
     @Override

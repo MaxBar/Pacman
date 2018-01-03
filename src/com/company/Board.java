@@ -18,4 +18,10 @@ public class Board {
         }*/
         return terminal;
     }
+    public int[] getSize() throws IOException {
+        int[] c = new int[2];
+        c[0] = terminal.getTerminalSize().getRows();
+        c[1] = terminal.getTerminalSize().getColumns();
+        return c;
+    }
 }

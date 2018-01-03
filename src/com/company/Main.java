@@ -1,8 +1,6 @@
 package com.company;
 
 import com.company.States.GameEngine;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
 

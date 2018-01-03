@@ -1,6 +1,4 @@
 package com.company.States;
-import com.company.MenuState;
-import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
 

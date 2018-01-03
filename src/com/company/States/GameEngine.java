@@ -1,16 +1,11 @@
 package com.company.States;
 
-import com.company.MenuState;
-import com.googlecode.lanterna.terminal.Terminal;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameEngine {
     private ArrayList<GameState> states;
     private boolean running;
-    Terminal terminal;
     
     public void init() {
         states = new ArrayList<>();

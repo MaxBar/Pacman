@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.States.GameEngine;
 import com.company.States.GameState;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class PlayState extends GameState {
     Player player;
     @Override
     public void init() throws IOException {
+        printField();
         enemies = new Enemy[4];
         for (int i = 0, y = 2; i < 4; i++) {
             System.out.println("loop " +i+" : "+y);
@@ -30,6 +32,7 @@ public class PlayState extends GameState {
     @Override
     public void handleEvents(GameEngine game) throws IOException {
         key = Board.getTerminal().readInput();
+        
         switch (key.getKeyType()) {
             case Escape:
                 Board.getTerminal().clearScreen();
@@ -39,41 +42,37 @@ public class PlayState extends GameState {
                 game.quit();
                 break;
             case ArrowLeft:
-                Board.getTerminal().clearScreen();
-                moveEnemy();
+                moveEnemy(player);
                 player.movement(player.getX() - 1 ,player.getY());
-                player.setX(player.getX() - 1);
                 break;
             case ArrowRight:
-                Board.getTerminal().clearScreen();
-                moveEnemy();
+                moveEnemy(player);
                 player.movement(player.getX() + 1, player.getY());
-                player.setX(player.getX() + 1);
                 break;
             case ArrowUp:
-                Board.getTerminal().clearScreen();
-                moveEnemy();
+                moveEnemy(player);
                 player.movement(player.getX(), player.getY() -1);
-                player.setY(player.getY() - 1);
                 break;
             case ArrowDown:
-                Board.getTerminal().clearScreen();
-                moveEnemy();
+                moveEnemy(player);
                 player.movement(player.getX(), player.getY() + 1);
-                player.setY(player.getY() + 1);
                 break;
 
         }
     }
-    private void moveEnemy() throws IOException {
-        /*for(Enemy e:enemies){
-            e.movement();
-        }*/
-    }
+    
+    
     @Override
     public void update(GameEngine game) throws IOException {
-
+        Board.getTerminal().clearScreen();
+        printField();
+        for(int i = 0; i < enemies.length; ++i) {
+            enemies[i].update();
+        }
+        player.update();
     }
+    
+    
 
     @Override
     public void draw(GameEngine game) throws IOException {
@@ -90,5 +89,29 @@ public class PlayState extends GameState {
         }
         return playState;
     }
-
+    
+    private void moveEnemy(Player player) throws IOException {
+        for(Enemy e:enemies){
+            e.movement(player);
+        }
+    }
+    
+    public void printField() throws IOException {
+        for(int i = 0; i < Board.getTerminal().getTerminalSize().getColumns(); ++i) {
+            for(int j = 0; j < Board.getTerminal().getTerminalSize().getRows(); ++j) {
+                if(j == 0){
+                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
+                }
+                else if(j == Board.getTerminal().getTerminalSize().getRows() - 1) {
+                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
+                }
+                else if(i == 0) {
+                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
+                }
+                else if(i == Board.getTerminal().getTerminalSize().getColumns() - 1) {
+                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
+                }
+            }
+        }
+    }
 }

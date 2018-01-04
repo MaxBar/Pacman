@@ -13,21 +13,9 @@ public class MenuState extends GameState {
     @Override
     public void init() throws IOException {
         Board.getTerminal().enterPrivateMode();
-        Board.getTerminal().setCursorPosition(10, 10);
-        Board.getTerminal().putCharacter('M');
-        Board.getTerminal().putCharacter('e');
-        Board.getTerminal().putCharacter('n');
-        Board.getTerminal().putCharacter('u');
-        Board.getTerminal().setCursorPosition(10, 11);
-        Board.getTerminal().putCharacter('P');
-        Board.getTerminal().putCharacter('l');
-        Board.getTerminal().putCharacter('a');
-        Board.getTerminal().putCharacter('y');
-        Board.getTerminal().setCursorPosition(10, 12);
-        Board.getTerminal().putCharacter('Q');
-        Board.getTerminal().putCharacter('u');
-        Board.getTerminal().putCharacter('i');
-        Board.getTerminal().putCharacter('t');
+        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 4, (Board.getTerminal().getTerminalSize().getRows() / 2) - 3, "Menu");
+        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 4, (Board.getTerminal().getTerminalSize().getRows() / 2) - 2, "Play");
+        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 4, (Board.getTerminal().getTerminalSize().getRows() / 2) - 1, "Quit");
     }
 
     @Override

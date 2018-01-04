@@ -1,5 +1,6 @@
 package com.company.States;
 
+import com.company.Board;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class GameEngine {
         while(!states.isEmpty()) {
             states.clear();
         }
-        
+
         states.add(state);
         states.get(states.size() - 1).init();
         
@@ -40,7 +41,7 @@ public class GameEngine {
     }
     
     // Kallar på nuvarande states handleEvents
-    public void handleEvents() {
+    public void handleEvents() throws IOException {
         states.get(states.size() - 1).handleEvents(this);
     }
     

@@ -1,16 +1,19 @@
 package com.company;
 
 import java.io.IOException;
+
 import com.company.States.*;
+import com.googlecode.lanterna.input.KeyStroke;
 
 public class MenuState extends GameState {
+
+    private KeyStroke key;
     private static MenuState menuState = null;
 
     @Override
     public void init() throws IOException {
         Board.getTerminal().enterPrivateMode();
-        Board.getTerminal().enterPrivateMode();
-        Board.getTerminal().setCursorPosition(10,10);
+        Board.getTerminal().setCursorPosition(10, 10);
         Board.getTerminal().putCharacter('M');
         Board.getTerminal().putCharacter('e');
         Board.getTerminal().putCharacter('n');
@@ -28,8 +31,27 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void handleEvents(GameEngine game) {
-
+    public void handleEvents(GameEngine game) throws IOException {
+        key = Board.getTerminal().readInput();
+        switch (key.getKeyType()) {
+            case Escape:
+                game.quit();
+                break;
+            case EOF:
+                game.quit();
+                break;
+            case Character:
+                switch (key.getCharacter()) {
+                    case 'p':
+                        Board.getTerminal().clearScreen();
+                        game.changeState(PlayState.getInstance());
+                        break;
+                    case 'q':
+                        System.out.println("wtf");
+                        game.quit();
+                        break;
+                }
+        }
     }
 
     @Override
@@ -42,11 +64,11 @@ public class MenuState extends GameState {
     }
 
     protected MenuState() {
-    
+
     }
-    
+
     public static MenuState getInstance() {
-        if(menuState == null) {
+        if (menuState == null) {
             menuState = new MenuState();
         }
         return menuState;

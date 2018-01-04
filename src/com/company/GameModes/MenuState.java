@@ -1,7 +1,8 @@
-package com.company;
+package com.company.GameModes;
 
 import java.io.IOException;
 
+import com.company.Board;
 import com.company.States.*;
 import com.googlecode.lanterna.input.KeyStroke;
 
@@ -12,6 +13,7 @@ public class MenuState extends GameState {
 
     @Override
     public void init() throws IOException {
+        Board.getTerminal().clearScreen();
         Board.getTerminal().enterPrivateMode();
         Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 4, (Board.getTerminal().getTerminalSize().getRows() / 2) - 3, "Menu");
         Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 4, (Board.getTerminal().getTerminalSize().getRows() / 2) - 2, "Play");

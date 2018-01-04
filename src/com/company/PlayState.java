@@ -10,7 +10,7 @@ public class PlayState {
 
     @Override
     public void init() throws IOException{
-        
+
     }
     @Override
     public void handleEvents(GameEngine game){

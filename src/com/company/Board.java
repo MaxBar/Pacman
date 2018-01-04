@@ -1,5 +1,6 @@
 package com.company;
 
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
@@ -9,7 +10,7 @@ public class Board {
     private static Terminal terminal;
     
     public Board() throws IOException {
-        terminal = new DefaultTerminalFactory().createTerminal();
+        terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(100, 30)).createTerminal();
     }
     
     public static Terminal getTerminal() throws IOException {

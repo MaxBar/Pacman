@@ -1,6 +1,5 @@
 package com.company.States;
 
-import com.company.Board;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -16,11 +15,11 @@ public class GameEngine {
     }
     
     // Byter state från ett till ett annat och rensar det gamla statet och lägger till det nya
-    public void changeState(GameState state) throws IOException{
-        while(!states.isEmpty()) {
+    public void changeState(GameState state) throws IOException {
+        while (!states.isEmpty()) {
             states.clear();
         }
-
+        
         states.add(state);
         states.get(states.size() - 1).init();
         
@@ -35,7 +34,7 @@ public class GameEngine {
     
     // Tömmer arrayn på states
     public void popState() {
-        if(!states.isEmpty()) {
+        if (!states.isEmpty()) {
             states.clear();
         }
     }
@@ -51,7 +50,7 @@ public class GameEngine {
     }
     
     // Kallar på nuvarande states draw
-    public void draw() throws IOException{
+    public void draw() throws IOException {
         states.get(states.size() - 1).draw(this);
     }
     

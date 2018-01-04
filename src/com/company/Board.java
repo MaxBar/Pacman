@@ -11,14 +11,13 @@ public class Board extends Object{
     
     public Board() throws IOException {
         terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(100, 30)).createTerminal();
+        terminal.setCursorVisible(false);
     }
 
     public static Terminal getTerminal() throws IOException {
-        /*if(terminal == null) {
-            terminal = new DefaultTerminalFactory().createTerminal();
-        }*/
         return terminal;
     }
+    
     public int[] getSize() throws IOException {
         int[] c = new int[2];
         c[0] = terminal.getTerminalSize().getRows();

@@ -1,4 +1,6 @@
-package com.company;
+package com.company.GameModes;
+
+import com.company.Board;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
 
@@ -13,7 +15,7 @@ public class InitState extends GameState {
     }
     
     public static InitState getInstance() {
-        if(initState == null) {
+        if (initState == null) {
             initState = new InitState();
         }
         return initState;

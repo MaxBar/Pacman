@@ -13,7 +13,7 @@ public class Player implements IEntity {
         this.y=y;
     }
     public void movement(int x, int y) throws IOException {
-
+        Board.getTerminal().newTextGraphics().putString(x, y, "P");
     }
 
     @Override

@@ -39,16 +39,36 @@ public class PlayState extends GameState {
                 game.quit();
                 break;
             case ArrowLeft:
+                Board.getTerminal().clearScreen();
                 moveEnemy();
-                player.movement(player.getX()-1 ,player.getY());
+                player.movement(player.getX() - 1 ,player.getY());
+                player.setX(player.getX() - 1);
+                break;
+            case ArrowRight:
+                Board.getTerminal().clearScreen();
+                moveEnemy();
+                player.movement(player.getX() + 1, player.getY());
+                player.setX(player.getX() + 1);
+                break;
+            case ArrowUp:
+                Board.getTerminal().clearScreen();
+                moveEnemy();
+                player.movement(player.getX(), player.getY() -1);
+                player.setY(player.getY() - 1);
+                break;
+            case ArrowDown:
+                Board.getTerminal().clearScreen();
+                moveEnemy();
+                player.movement(player.getX(), player.getY() + 1);
+                player.setY(player.getY() + 1);
                 break;
 
         }
     }
     private void moveEnemy() throws IOException {
-        for(Enemy e:enemies){
+        /*for(Enemy e:enemies){
             e.movement();
-        }
+        }*/
     }
     @Override
     public void update(GameEngine game) throws IOException {

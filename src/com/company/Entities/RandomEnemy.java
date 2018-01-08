@@ -14,6 +14,7 @@ public class RandomEnemy extends Enemy implements IEntity {
     
     public RandomEnemy(int x, int y) {
         super(x, y);
+        string = "\u2622";
         collision = new Collision();
     }
     

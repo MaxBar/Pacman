@@ -3,7 +3,9 @@ package com.company.GameModes;
 import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Entities.Enemy;
+import com.company.Entities.FastEnemy;
 import com.company.Entities.Player;
+import com.company.Entities.RandomEnemy;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -29,8 +31,8 @@ public class PlayState extends GameState {
 
         // Enemies
         enemies = new Enemy[amount];
-        enemies[0] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
-        enemies[1] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
+        enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
+        enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
         enemies[2] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
         enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
 

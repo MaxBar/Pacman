@@ -23,7 +23,7 @@ public class PlayState extends GameState {
     public void init() throws IOException {
         amount = 4;
         // Playfield
-        printField();
+        Board.printField();
         
         // Enemies
         enemies = new Enemy[amount];
@@ -80,7 +80,7 @@ public class PlayState extends GameState {
     @Override
     public void update(GameEngine game) throws IOException {
         Board.getTerminal().clearScreen();
-        printField();
+        Board.printField();
         player.update();
         bitcoin.update();
         for (int i = 0; i < enemies.length; ++i) {
@@ -116,7 +116,7 @@ public class PlayState extends GameState {
         }
     }
     
-    public void printField() throws IOException {
+    /*public void printField() throws IOException {
         for (int i = 0; i < Board.getTerminal().getTerminalSize().getColumns(); ++i) {
             for (int j = 0; j < Board.getTerminal().getTerminalSize().getRows(); ++j) {
                 if (j == 0) {
@@ -130,5 +130,5 @@ public class PlayState extends GameState {
                 }
             }
         }
-    }
+    }*/
 }

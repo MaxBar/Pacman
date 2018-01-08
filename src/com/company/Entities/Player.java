@@ -30,7 +30,7 @@ public class Player implements IEntity {
     }
     
     public void update() throws IOException {
-        Board.getTerminal().newTextGraphics().putString(x, y, "P");
+        Board.getTerminal().newTextGraphics().putString(x, y, "\u263A");
     }
     
     public int getX() {

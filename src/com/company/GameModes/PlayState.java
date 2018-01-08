@@ -19,7 +19,7 @@ public class PlayState extends GameState {
     private Player player;
     private Bitcoin bitcoin;
     private int amount;
-    private Random 
+    private Random random;
     
     @Override
     public void init() throws IOException {

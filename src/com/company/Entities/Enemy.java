@@ -1,5 +1,6 @@
 package com.company.Entities;
 
+import com.company.Bitcoin;
 import com.company.Board;
 import com.googlecode.lanterna.TextCharacter;
 
@@ -38,6 +39,41 @@ public class Enemy implements IEntity {
                 if (player.getY() < y) {
                     y -= 1;
                 } else if (player.getY() > y) {
+                    y += 1;
+                }
+            }
+        }
+        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        char cc = c.getCharacter();
+        System.out.println(cc);
+        if (cc == string.toCharArray()[0]) {
+            x = oldx;
+            y = oldy;
+        }
+    }
+    
+    public void movement(Bitcoin bitcoin) throws IOException {
+        int oldx = x;
+        int oldy = y;
+        if (Math.random() < 0.3) {
+            if (bitcoin.getX() < this.x) {
+                x -= 1;
+                if (bitcoin.getY() < y) {
+                    y -= 1;
+                } else if (bitcoin.getY() > y) {
+                    y += 1;
+                }
+            } else if (bitcoin.getX() > this.x) {
+                x += 1;
+                if (bitcoin.getY() < y) {
+                    y -= 1;
+                } else if (bitcoin.getY() > y) {
+                    y += 1;
+                }
+            } else if (bitcoin.getX() == x) {
+                if (bitcoin.getY() < y) {
+                    y -= 1;
+                } else if (bitcoin.getY() > y) {
                     y += 1;
                 }
             }

@@ -2,7 +2,6 @@ package com.company;
 
 import com.company.Entities.*;
 
-import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 
 public class Collision {
@@ -13,22 +12,22 @@ public class Collision {
     public boolean isBitcoinCollisionDetected(Player player, Bitcoin bitcoin) {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
     }
-    
-    public boolean isBitcoinCollisionDetected(Enemy enemy, IEntity bitcoin) {
+
+    public boolean isBitcoinCollisionDetected(Enemy enemy, Bitcoin bitcoin) {
         return enemy.getY() == bitcoin.getY() && enemy.getX() == bitcoin.getX();
     }
-    
+
     /*public boolean isBothEnemyCollisionDetected(Enemy[] enemy) {
         boolean isCollision = false;
         for(int i = 0; i < enemy.length; ++i) {
-        
+
         }
         return en
     }*/
-    
+
     public boolean isOutofBounds(Player player) throws IOException {
         boolean isOutofBounds = false;
-        
+
         if(player.getX() >= Board.getTerminal().getTerminalSize().getColumns() - 1) {
             isOutofBounds = true;
         }
@@ -41,7 +40,7 @@ public class Collision {
         if(player.getY() <= 0) {
             isOutofBounds = true;
         }
-        
+
         return isOutofBounds;
     }
 }

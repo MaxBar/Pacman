@@ -9,6 +9,7 @@ import com.company.States.GameState;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
+import java.util.Random;
 
 
 public class PlayState extends GameState {
@@ -18,6 +19,7 @@ public class PlayState extends GameState {
     private Player player;
     private Bitcoin bitcoin;
     private int amount;
+    private Random 
     
     @Override
     public void init() throws IOException {
@@ -27,8 +29,7 @@ public class PlayState extends GameState {
         
         // Enemies
         enemies = new Enemy[amount];
-        for (int i = 0, y = 2; i < 4; i++) {
-            System.out.println("loop " + i + " : " + y);
+        for (int i = 0, y = 2; i < enemies.length; i++) {
             enemies[i] = new Enemy(10, y);
             Board.getTerminal().setCursorPosition(enemies[i].getX(), enemies[i].getY());
             Board.getTerminal().putCharacter('E');

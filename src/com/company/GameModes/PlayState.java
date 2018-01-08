@@ -32,14 +32,14 @@ public class PlayState extends GameState {
         for (int i = 0, y = 2; i < enemies.length; i++) {
             enemies[i] = new Enemy(10, y);
             Board.getTerminal().setCursorPosition(enemies[i].getX(), enemies[i].getY());
-            Board.getTerminal().putCharacter('E');
+            Board.getTerminal().putCharacter('\u2622');
             y += 5;
         }
         
         // Player
         player = new Player(20, 20);
         Board.getTerminal().setCursorPosition(player.getX(), player.getY());
-        Board.getTerminal().putCharacter('P');
+        Board.getTerminal().putCharacter('\u263A');
         
         // Bitcoins
         bitcoin = new Bitcoin();

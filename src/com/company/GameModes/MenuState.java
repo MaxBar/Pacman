@@ -37,7 +37,6 @@ public class MenuState extends GameState {
                         game.changeState(PlayState.getInstance());
                         break;
                     case 'q':
-                        System.out.println("wtf");
                         game.quit();
                         break;
                 }

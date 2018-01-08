@@ -13,7 +13,7 @@ public class Enemy implements IEntity {
     public Enemy(int x, int y) {
         this.x = x;
         this.y = y;
-        string = "E";
+        string = "\u2622";
     }
     
     public void movement(Player player) throws IOException {

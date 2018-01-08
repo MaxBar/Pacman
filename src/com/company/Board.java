@@ -17,25 +17,30 @@ public class Board extends Object{
     public static Terminal getTerminal() throws IOException {
         return terminal;
     }
-    
-    public int[] getSize() throws IOException {
-        int[] c = new int[2];
-        c[0] = terminal.getTerminalSize().getRows();
-        c[1] = terminal.getTerminalSize().getColumns();
-        return c;
+
+    public int getRows() throws IOException {
+        int row;
+        row = terminal.getTerminalSize().getRows();
+        return row;
+    }
+
+    public int getColumns() throws IOException {
+        int col;
+        col = terminal.getTerminalSize().getColumns();
+        return col;
     }
     
     public static void printField() throws IOException {
         for (int i = 0; i < terminal.getTerminalSize().getColumns(); ++i) {
             for (int j = 0; j < terminal.getTerminalSize().getRows(); ++j) {
                 if (j == 0) {
-                    terminal.newTextGraphics().putString(i, j, "X");
+                    terminal.newTextGraphics().putString(i, j, "\u2588");
                 } else if (j == terminal.getTerminalSize().getRows() - 1) {
-                    terminal.newTextGraphics().putString(i, j, "X");
+                    terminal.newTextGraphics().putString(i, j, "\u2588");
                 } else if (i == 0) {
-                    terminal.newTextGraphics().putString(i, j, "X");
+                    terminal.newTextGraphics().putString(i, j, "\u2588");
                 } else if (i == Board.getTerminal().getTerminalSize().getColumns() - 1) {
-                    terminal.newTextGraphics().putString(i, j, "X");
+                    terminal.newTextGraphics().putString(i, j, "\u2588");
                 }
             }
         }

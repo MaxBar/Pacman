@@ -32,8 +32,8 @@ public class Board extends Object{
     
     public static void printField() throws IOException {
         for (int i = 0; i < terminal.getTerminalSize().getColumns(); ++i) {
-            for (int j = 0; j < terminal.getTerminalSize().getRows(); ++j) {
-                if (j == 0) {
+            for (int j = 3; j < terminal.getTerminalSize().getRows(); ++j) {
+                if (j == 3) {
                     terminal.newTextGraphics().putString(i, j, "\u2588");
                 } else if (j == terminal.getTerminalSize().getRows() - 1) {
                     terminal.newTextGraphics().putString(i, j, "\u2588");

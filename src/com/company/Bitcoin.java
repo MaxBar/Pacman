@@ -59,4 +59,15 @@ public class Bitcoin implements IEntity {
     public void update() throws IOException {
         Board.getTerminal().newTextGraphics().putString(x, y, "$");
     }
+    public void newBitcoin() throws IOException {
+        do {
+            x = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getColumns()) + 1);
+            y = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getRows()) + 1);
+
+            TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x ,y);
+            cc = c.getCharacter();
+
+        } while(cc != ' ');
+
+    }
 }

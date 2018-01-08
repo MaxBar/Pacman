@@ -1,5 +1,6 @@
 package com.company.Entities;
 
+import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Collision;
 import com.googlecode.lanterna.TextCharacter;
@@ -17,7 +18,7 @@ public class Player implements IEntity {
         collision = new Collision();
     }
     
-    public void movement(int x, int y) throws IOException {
+    public void movement(int x, int y, Bitcoin bitcoin) throws IOException {
         int oldx = this.x;
         int oldy = this.y;
         this.x = x;
@@ -26,6 +27,9 @@ public class Player implements IEntity {
         if(collision.isOutofBounds(this)) {
             this.x = oldx;
             this.y = oldy;
+        }
+        if (collision.isBitcoinCollisionDetected(this, bitcoin)){
+            bitcoin.newBitcoin();
         }
         /*TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();

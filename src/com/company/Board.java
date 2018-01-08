@@ -30,6 +30,14 @@ public class Board extends Object{
         return offset;
     }
     
+    public static int getColumns() throws IOException {
+        return terminal.getTerminalSize().getColumns();
+    }
+    
+    public static int getRows() throws IOException {
+        return terminal.getTerminalSize().getRows()
+    }
+    
     public static void printField() throws IOException {
         for (int i = 0; i < terminal.getTerminalSize().getColumns(); ++i) {
             for (int j = 3; j < terminal.getTerminalSize().getRows(); ++j) {

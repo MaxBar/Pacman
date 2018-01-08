@@ -5,14 +5,21 @@ import com.company.Entities.*;
 import java.io.IOException;
 
 public class Collision {
-    public boolean isEnemyCollisionDetected(Enemy enemy, Player player) {
+    public static boolean isEnemyCollisionDetected(Enemy enemy, Player player) {
         return enemy.getX() == player.getX() && enemy.getY() == player.getY();
     }
 
-    public boolean isBitcoinCollisionDetected(Player player, Bitcoin bitcoin) {
+    public static boolean isBitcoinCollisionDetected(Player player, Bitcoin bitcoin) {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
     }
+<<<<<<< HEAD
 
+=======
+    
+<<<<<<< HEAD
+    public static boolean isOutofBounds(IEntity entity) throws IOException {
+=======
+>>>>>>> 653dbb729783e899965f17caf53000ac1b2cc42e
     public boolean isBitcoinCollisionDetected(Enemy enemy, Bitcoin bitcoin) {
         return enemy.getY() == bitcoin.getY() && enemy.getX() == bitcoin.getX();
     }
@@ -26,18 +33,24 @@ public class Collision {
     }*/
 
     public boolean isOutofBounds(Player player) throws IOException {
+>>>>>>> d5fd8e717c46dbb1804e6802c7c9c519a621cab8
         boolean isOutofBounds = false;
+<<<<<<< HEAD
 
         if(player.getX() >= Board.getTerminal().getTerminalSize().getColumns() - 1) {
+=======
+        
+        if(entity.getX() >= Board.getTerminal().getTerminalSize().getColumns() - 1) {
+>>>>>>> 653dbb729783e899965f17caf53000ac1b2cc42e
             isOutofBounds = true;
         }
-        if(player.getY() >= Board.getTerminal().getTerminalSize().getRows() - 1) {
+        if(entity.getY() >= Board.getTerminal().getTerminalSize().getRows() - 1) {
             isOutofBounds = true;
         }
-        if(player.getX() <= 0) {
+        if(entity.getX() <= 0) {
             isOutofBounds = true;
         }
-        if(player.getY() <= 0) {
+        if(entity.getY() <= 0) {
             isOutofBounds = true;
         }
 

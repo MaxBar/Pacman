@@ -24,4 +24,20 @@ public class Board {
         c[1] = terminal.getTerminalSize().getColumns();
         return c;
     }
+    
+    public static void printField() throws IOException {
+        for (int i = 0; i < terminal.getTerminalSize().getColumns(); ++i) {
+            for (int j = 0; j < terminal.getTerminalSize().getRows(); ++j) {
+                if (j == 0) {
+                    terminal.newTextGraphics().putString(i, j, "X");
+                } else if (j == terminal.getTerminalSize().getRows() - 1) {
+                    terminal.newTextGraphics().putString(i, j, "X");
+                } else if (i == 0) {
+                    terminal.newTextGraphics().putString(i, j, "X");
+                } else if (i == Board.getTerminal().getTerminalSize().getColumns() - 1) {
+                    terminal.newTextGraphics().putString(i, j, "X");
+                }
+            }
+        }
+    }
 }

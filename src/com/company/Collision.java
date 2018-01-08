@@ -16,10 +16,10 @@ public class Collision {
     public boolean isOutofBounds(Player player) throws IOException {
         boolean isOutofBounds = false;
         
-        if(player.getX() >= Board.getTerminal().getTerminalSize().getColumns()) {
+        if(player.getX() >= Board.getTerminal().getTerminalSize().getColumns() - 1) {
             isOutofBounds = true;
         }
-        if(player.getY() >= Board.getTerminal().getTerminalSize().getRows()) {
+        if(player.getY() >= Board.getTerminal().getTerminalSize().getRows() - 1) {
             isOutofBounds = true;
         }
         if(player.getX() <= 0) {

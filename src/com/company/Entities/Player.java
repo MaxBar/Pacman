@@ -1,6 +1,7 @@
 package com.company.Entities;
 
 import com.company.Board;
+import com.company.Collision;
 import com.googlecode.lanterna.TextCharacter;
 
 import java.io.IOException;
@@ -8,10 +9,12 @@ import java.io.IOException;
 public class Player implements IEntity {
     private int x;
     private int y;
+    private Collision collision;
     
     public Player(int x, int y) {
         this.x = x;
         this.y = y;
+        collision = new Collision();
     }
     
     public void movement(int x, int y) throws IOException {
@@ -20,13 +23,17 @@ public class Player implements IEntity {
         this.x = x;
         this.y = y;
         
-        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        if(collision.isOutofBounds(this)) {
+            this.x = oldx;
+            this.y = oldy;
+        }
+        /*TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);
         if (cc == 'X') {
             this.x = oldx;
             this.y = oldy;
-        }
+        }*/
     }
     
     public void update() throws IOException {

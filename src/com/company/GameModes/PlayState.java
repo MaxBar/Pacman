@@ -23,9 +23,10 @@ public class PlayState extends GameState {
     @Override
     public void init() throws IOException {
         amount = 4;
+
         // Playfield
         Board.printField();
-        
+
         // Enemies
         enemies = new Enemy[amount];
         enemies[0] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
@@ -37,7 +38,7 @@ public class PlayState extends GameState {
             Board.getTerminal().setCursorPosition(enemies[i].getX(), enemies[i].getY());
             Board.getTerminal().putCharacter('\u2622');
         }
-        
+
         // Player
         player = new Player(20, 20);
         Board.getTerminal().setCursorPosition(player.getX(), player.getY());
@@ -61,19 +62,19 @@ public class PlayState extends GameState {
                 break;
             case ArrowLeft:
                 moveEnemy(player);
-                player.movement(player.getX() - 1, player.getY());
+                player.movement(player.getX() - 1, player.getY(), bitcoin);
                 break;
             case ArrowRight:
                 moveEnemy(player);
-                player.movement(player.getX() + 1, player.getY());
+                player.movement(player.getX() + 1, player.getY(), bitcoin);
                 break;
             case ArrowUp:
                 moveEnemy(player);
-                player.movement(player.getX(), player.getY() - 1);
+                player.movement(player.getX(), player.getY() - 1, bitcoin);
                 break;
             case ArrowDown:
                 moveEnemy(player);
-                player.movement(player.getX(), player.getY() + 1);
+                player.movement(player.getX(), player.getY() + 1, bitcoin);
                 break;
             
         }

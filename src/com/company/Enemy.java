@@ -1,5 +1,7 @@
 package com.company;
 
+import com.googlecode.lanterna.TextCharacter;
+
 import java.io.IOException;
 
 public class Enemy implements IEntity {
@@ -11,7 +13,9 @@ public class Enemy implements IEntity {
         this.y=y;
     }
     public void movement() throws IOException {
-        //
+        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(12,12);
+        char cc = c.getCharacter();
+        System.out.println(cc);
     }
 
     public int getX(){

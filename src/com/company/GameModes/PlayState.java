@@ -29,9 +29,9 @@ public class PlayState extends GameState {
 
         // Enemies
         enemies = new Enemy[amount];
-        enemies[0] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
-        enemies[1] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
-        enemies[2] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
+        enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
+        enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
+        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
         enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()));
 
         for (int i = 0; i < enemies.length; i++) {
@@ -118,9 +118,15 @@ public class PlayState extends GameState {
     }
     
     private void moveEnemy(Player player) throws IOException {
-        for (Enemy e : enemies) {
-            e.movement(player);
+        for(int i = 0; i < enemies.length; ++i) {
+            if(i == 2) {
+                enemies[i].movement(bitcoin);
+            }
+            enemies[i].movement(player);
         }
+        /*for (Enemy e : enemies) {
+            e.movement(player);
+        }*/
     }
     
     /*public void printField() throws IOException {

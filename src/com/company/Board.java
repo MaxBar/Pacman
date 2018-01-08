@@ -8,26 +8,34 @@ import java.io.IOException;
 
 public class Board extends Object{
     private static Terminal terminal;
+    private static int origin;
+    private static int offset;
     
     public Board() throws IOException {
         terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(100, 30)).createTerminal();
         terminal.setCursorVisible(false);
+        origin = 0;
+        offset = 4;
     }
 
     public static Terminal getTerminal() throws IOException {
         return terminal;
     }
 
-    public static int getRows() throws IOException {
-        int row;
-        row = terminal.getTerminalSize().getRows();
-        return row;
+    public static int borderOrigin() throws IOException {
+        return origin;
     }
 
+    public static int borderOffset() throws IOException {
+        return offset;
+    }
+    
     public static int getColumns() throws IOException {
-        int col;
-        col = terminal.getTerminalSize().getColumns();
-        return col;
+        return terminal.getTerminalSize().getColumns();
+    }
+    
+    public static int getRows() throws IOException {
+        return terminal.getTerminalSize().getRows();
     }
     
     public static void printField() throws IOException {

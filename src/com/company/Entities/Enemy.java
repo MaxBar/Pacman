@@ -55,9 +55,7 @@ public class Enemy implements IEntity {
         Board.getTerminal().newTextGraphics().putString(x, y, string);
     }
     
-    public int getX() {
-        return x;
-    }
+    public int getX() { return x; }
     
     public void setX(int x) {
         this.x = x;

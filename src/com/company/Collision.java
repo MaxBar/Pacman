@@ -13,6 +13,14 @@ public class Collision {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
     }
     
+    /*public boolean isBothEnemyCollisionDetected(Enemy[] enemy) {
+        boolean isCollision = false;
+        for(int i = 0; i < enemy.length; ++i) {
+        
+        }
+        return en
+    }*/
+    
     public boolean isOutofBounds(Player player) throws IOException {
         boolean isOutofBounds = false;
         

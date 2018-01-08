@@ -24,9 +24,10 @@ public class PlayState extends GameState {
     @Override
     public void init() throws IOException {
         amount = 4;
+
         // Playfield
         Board.printField();
-        
+
         // Enemies
         enemies = new Enemy[amount];
         for (int i = 0, y = 2; i < enemies.length; i++) {
@@ -35,7 +36,7 @@ public class PlayState extends GameState {
             Board.getTerminal().putCharacter('\u2622');
             y += 5;
         }
-        
+
         // Player
         player = new Player(20, 20);
         Board.getTerminal().setCursorPosition(player.getX(), player.getY());

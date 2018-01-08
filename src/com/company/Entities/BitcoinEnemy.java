@@ -5,6 +5,7 @@ import com.company.Board;
 import com.company.Collision;
 import com.googlecode.lanterna.TextCharacter;
 
+import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 
 public class BitcoinEnemy extends Enemy implements IEntity {
@@ -17,7 +18,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
         collision = new Collision();
     }
 
-    public void movement(Bitcoin bitcoin) throws IOException {
+    public void movement(IEntity bitcoin) throws IOException {
         int oldx = getX();
         int oldy = getY();
 
@@ -46,7 +47,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
         }
 
         if (collision.isBitcoinCollisionDetected(this, bitcoin)){
-            bitcoin.newBitcoin();
+            (Bitcoin) bitcoin.newBitcoin();
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);

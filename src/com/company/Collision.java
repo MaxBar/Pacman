@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.Entities.*;
 
+import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 
 public class Collision {
@@ -13,7 +14,7 @@ public class Collision {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
     }
     
-    public boolean isBitcoinCollisionDetected(Enemy enemy, Bitcoin bitcoin) {
+    public boolean isBitcoinCollisionDetected(Enemy enemy, IEntity bitcoin) {
         return enemy.getY() == bitcoin.getY() && enemy.getX() == bitcoin.getX();
     }
     

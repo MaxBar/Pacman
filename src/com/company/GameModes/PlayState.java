@@ -2,8 +2,7 @@ package com.company.GameModes;
 
 import com.company.Bitcoin;
 import com.company.Board;
-import com.company.Entities.Enemy;
-import com.company.Entities.Player;
+import com.company.Entities.*;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -19,6 +18,7 @@ public class PlayState extends GameState {
     private Player player;
     private Bitcoin bitcoin;
     private int amount;
+    private Wall wall;
 
     @Override
     public void init() throws IOException {
@@ -43,9 +43,12 @@ public class PlayState extends GameState {
         player = new Player(20, 20);
         Board.getTerminal().setCursorPosition(player.getX(), player.getY());
         Board.getTerminal().putCharacter('\u263A');
-        
+
         // Bitcoins
         bitcoin = new Bitcoin();
+
+        // Wall
+        wall = new Wall();
     }
     
     @Override
@@ -103,11 +106,11 @@ public class PlayState extends GameState {
         Board.getTerminal().flush();
     }
     
-    protected PlayState() {
+    protected PlayState() throws IOException {
     
     }
     
-    public static PlayState getInstance() {
+    public static PlayState getInstance() throws IOException {
         if (playState == null) {
             playState = new PlayState();
         }

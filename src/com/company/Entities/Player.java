@@ -10,12 +10,10 @@ import java.io.IOException;
 public class Player implements IEntity {
     private int x;
     private int y;
-    private Collision collision;
-    
+
     public Player(int x, int y) {
         this.x = x;
         this.y = y;
-        collision = new Collision();
     }
     
     public void movement(int x, int y, Bitcoin bitcoin) throws IOException {
@@ -24,11 +22,11 @@ public class Player implements IEntity {
         this.x = x;
         this.y = y;
         
-        if(collision.isOutofBounds(this)) {
+        if(Collision.isOutofBounds(this)) {
             this.x = oldx;
             this.y = oldy;
         }
-        if (collision.isBitcoinCollisionDetected(this, bitcoin)){
+        if (Collision.isBitcoinCollisionDetected(this, bitcoin)){
             bitcoin.newBitcoin();
         }
         /*TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);

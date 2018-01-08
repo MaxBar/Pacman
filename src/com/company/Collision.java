@@ -13,6 +13,10 @@ public class Collision {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
     }
     
+    public boolean isBitcoinCollisionDetected(Enemy enemy, Bitcoin bitcoin) {
+        return enemy.getY() == bitcoin.getY() && enemy.getX() == bitcoin.getX();
+    }
+    
     /*public boolean isBothEnemyCollisionDetected(Enemy[] enemy) {
         boolean isCollision = false;
         for(int i = 0; i < enemy.length; ++i) {

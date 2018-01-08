@@ -35,7 +35,7 @@ public class Board extends Object{
     }
     
     public static int getRows() throws IOException {
-        return terminal.getTerminalSize().getRows()
+        return terminal.getTerminalSize().getRows();
     }
     
     public static void printField() throws IOException {

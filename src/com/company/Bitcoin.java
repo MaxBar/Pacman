@@ -5,6 +5,7 @@ import com.googlecode.lanterna.TextCharacter;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Bitcoin implements IEntity {
     int x;
@@ -45,24 +46,17 @@ public class Bitcoin implements IEntity {
     }
     
     public void init() throws IOException {
-        random = new Random();
-        do {
-            x = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getColumns()) + 1);
-            y = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getRows()) + 1);
-        
-            TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x ,y);
-            cc = c.getCharacter();
-        
-        } while(cc != ' ');
+        newBitcoin();
     }
     
     public void update() throws IOException {
         Board.getTerminal().newTextGraphics().putString(x, y, "$");
     }
     public void newBitcoin() throws IOException {
+        random = new Random();
         do {
             x = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getColumns()) + 1);
-            y = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getRows()) + 1);
+            y = ThreadLocalRandom.current().nextInt(3, Board.getRows());
 
             TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x ,y);
             cc = c.getCharacter();

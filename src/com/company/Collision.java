@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.Entities.Player;
+import com.company.Entities.*;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ public class Collision {
     public boolean isEnemyCollisionDetected(Enemy enemy, Player player) {
         return enemy.getX() == player.getX() && enemy.getY() == player.getY();
     }
-    
+
     public boolean isBitcoinCollisionDetected(Player player, Bitcoin bitcoin) {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
     }

@@ -114,9 +114,15 @@ public class PlayState extends GameState {
     }
     
     private void moveEnemy(Player player) throws IOException {
-        for (Enemy e : enemies) {
-            e.movement(player);
+        for(int i = 0; i < enemies.length; ++i) {
+            if(i == 2) {
+                enemies[i].movement(bitcoin);
+            }
+            enemies[i].movement(player);
         }
+        /*for (Enemy e : enemies) {
+            e.movement(player);
+        }*/
     }
     
     /*public void printField() throws IOException {

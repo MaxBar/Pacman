@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.Entities.IEntity;
 import com.googlecode.lanterna.TextCharacter;
 
 import java.io.IOException;

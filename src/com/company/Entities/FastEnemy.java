@@ -6,8 +6,6 @@ import com.googlecode.lanterna.TextCharacter;
 import java.io.IOException;
 
 public class FastEnemy extends Enemy implements IEntity {
-    private int x = 0;
-    private int y = 0;
     private String string;
 
     @Override
@@ -33,33 +31,33 @@ public class FastEnemy extends Enemy implements IEntity {
     }
 
     public void movement(Player player) throws IOException {
-        int oldx = x;
-        int oldy = y;
-        if (Math.random() < 0.5) {
-            if (player.getX() < this.x) {
-                x -= 1;
-                if (player.getY() < y) {
-                    y -= 1;
+        int oldx = getX();
+        int oldy = getY();
+        if (Math.random() < 0.8) {
+            if (player.getX() < this.getX()) {
+                setX(getX() - 1);
+                if (player.getY() < getY()) {
+                    setY(getY() - 1);
                 }
-                else if (player.getY() > y) {
-                    y += 1;
-                }
-            }
-            else if (player.getX() > this.x) {
-                x += 1;
-                if (player.getY() < y) {
-                    y -= 1;
-                }
-                else if (player.getY() > y) {
-                    y += 1;
+                else if (player.getY() > getY()) {
+                    setY(getY() + 1);
                 }
             }
-            else if (player.getX() == x) {
-                if (player.getY() < y) {
-                    y -= 1;
+            else if (player.getX() > this.getX()) {
+                setX(getX() + 1);
+                if (player.getY() < getY()) {
+                    setY(getY() - 1);
                 }
-                else if (player.getY() > y) {
-                    y += 1;
+                else if (player.getY() > getY()) {
+                    setY(getY() + 1);
+                }
+            }
+            else if (player.getX() == getX()) {
+                if (player.getY() < getY()) {
+                    setY(getY() - 1);
+                }
+                else if (player.getY() > getY()) {
+                    setY(getY() + 1);
                 }
             }
         }
@@ -67,8 +65,8 @@ public class FastEnemy extends Enemy implements IEntity {
         char cc = c.getCharacter();
         System.out.println(cc);
         if (cc == string.toCharArray()[0]) {
-            x = oldx;
-            y = oldy;
+            setX(oldx);
+            setY(oldy);
         }
     }
 

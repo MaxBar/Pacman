@@ -59,19 +59,19 @@ public class PlayState extends GameState {
                 break;
             case ArrowLeft:
                 moveEnemy(player);
-                player.movement(player.getX() - 1, player.getY());
+                player.movement(player.getX() - 1, player.getY(), bitcoin);
                 break;
             case ArrowRight:
                 moveEnemy(player);
-                player.movement(player.getX() + 1, player.getY());
+                player.movement(player.getX() + 1, player.getY(), bitcoin);
                 break;
             case ArrowUp:
                 moveEnemy(player);
-                player.movement(player.getX(), player.getY() - 1);
+                player.movement(player.getX(), player.getY() - 1, bitcoin);
                 break;
             case ArrowDown:
                 moveEnemy(player);
-                player.movement(player.getX(), player.getY() + 1);
+                player.movement(player.getX(), player.getY() + 1, bitcoin);
                 break;
             
         }

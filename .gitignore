@@ -1,2 +1,4 @@
-.idea/
+.idea/workspace.xml
 out/
+pacman.iml
+.DS_Store

@@ -18,15 +18,15 @@ public class Board extends Object{
         return terminal;
     }
 
-    public int[] getRows() throws IOException {
-        int[] row = new int[1];
-        row[0] = terminal.getTerminalSize().getRows();
+    public int getRows() throws IOException {
+        int row;
+        row = terminal.getTerminalSize().getRows();
         return row;
     }
 
-    public int[] getColumns() throws IOException {
-        int[] col = new int[1];
-        col[0] = terminal.getTerminalSize().getColumns();
+    public int getColumns() throws IOException {
+        int col;
+        col = terminal.getTerminalSize().getColumns();
         return col;
     }
     

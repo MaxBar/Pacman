@@ -32,10 +32,10 @@ public class PlayState extends GameState {
         
         // Enemies
         enemies = new Enemy[amount];
-        enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.GREEN,'\u2622');//Fast
-        enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.BLUE,'\u2744');//Random
-        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.RED,'\u262D');//Coinchaser
-        enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.WHITE,'\u262F');//Normal
+        enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(2, Board.getColumns()-2),ThreadLocalRandom.current().nextInt(6, Board.getRows()-2), TextColor.ANSI.GREEN,'\u2622');//Fast
+        enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(2, Board.getColumns()-2),ThreadLocalRandom.current().nextInt(6, Board.getRows()-2), TextColor.ANSI.BLUE,'\u2744');//Random
+        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(2, Board.getColumns()-2),ThreadLocalRandom.current().nextInt(6, Board.getRows()-2), TextColor.ANSI.RED,'\u262D');//Coinchaser
+        enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(2, Board.getColumns()-2),ThreadLocalRandom.current().nextInt(6, Board.getRows()-2), TextColor.ANSI.WHITE,'\u262F');//Normal
         
         for (int i = 0; i < enemies.length; i++) {
             Board.getTerminal().setCursorPosition(enemies[i].getX(), enemies[i].getY());

@@ -1,6 +1,8 @@
 package com.company.Entities;
 
 import com.company.Board;
+import com.company.Collision;
+import com.company.States.PlayerHealth;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 
@@ -8,6 +10,7 @@ import java.io.IOException;
 
 public class FastEnemy extends Enemy implements IEntity {
     private char string;
+    private Collision collision;
 
     @Override
     public int getX(){
@@ -28,6 +31,7 @@ public class FastEnemy extends Enemy implements IEntity {
 
     public FastEnemy(int x, int y, TextColor color, char string) {
         super(x, y, color, string);
+        collision = new Collision();
         this.string = string;
     }
 
@@ -61,6 +65,10 @@ public class FastEnemy extends Enemy implements IEntity {
                     setY(getY() + 1);
                 }
             }
+        }
+        if(collision.isEnemyCollisionDetected(this, player)) {
+            PlayerHealth.removeHealth();
+            System.out.println("Hit player");
         }
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();

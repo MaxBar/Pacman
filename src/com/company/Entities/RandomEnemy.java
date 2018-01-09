@@ -2,6 +2,7 @@ package com.company.Entities;
 
 import com.company.Board;
 import com.company.Collision;
+import com.company.States.PlayerHealth;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 
@@ -43,6 +44,7 @@ public class RandomEnemy extends Enemy implements IEntity {
             }
         }
         if(collision.isEnemyCollisionDetected(this, player)) {
+            PlayerHealth.removeHealth();
             System.out.println("Hit player");
         }
         

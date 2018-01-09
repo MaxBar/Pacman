@@ -29,13 +29,16 @@ public class Player implements IEntity {
         if (Collision.isBitcoinCollisionDetected(this, bitcoin)){
             bitcoin.newBitcoin();
         }
-        /*TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+
+
+
+        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);
-        if (cc == 'X') {
+        if (cc == Wall.getChar()) {
             this.x = oldx;
             this.y = oldy;
-        }*/
+        }
     }
     
     public void update() throws IOException {

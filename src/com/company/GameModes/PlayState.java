@@ -88,11 +88,12 @@ public class PlayState extends GameState {
     public void update(GameEngine game) throws IOException {
         Board.getTerminal().clearScreen();
         Board.printField();
+        wall.update();
         player.update();
         bitcoin.update();
         for (int i = 0; i < enemies.length; ++i) {
             enemies[i].update();
-            
+
             //collision.update(enemies[i], player);
             if (player.getX() == enemies[i].getX() && player.getY() == enemies[i].getY()) {
                 System.out.println("hit");
@@ -120,28 +121,15 @@ public class PlayState extends GameState {
     private void moveEnemy(Player player) throws IOException {
         for(int i = 0; i < enemies.length; ++i) {
             if(i == 2) {
-                enemies[i].movement(bitcoin);
+                enemies[2].movement(bitcoin);
             }
+            else
             enemies[i].movement(player);
         }
-        /*for (Enemy e : enemies) {
+        for (Enemy e : enemies) {
             e.movement(player);
-        }*/
+        }
     }
     
-    /*public void printField() throws IOException {
-        for (int i = 0; i < Board.getTerminal().getTerminalSize().getColumns(); ++i) {
-            for (int j = 0; j < Board.getTerminal().getTerminalSize().getRows(); ++j) {
-                if (j == 0) {
-                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
-                } else if (j == Board.getTerminal().getTerminalSize().getRows() - 1) {
-                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
-                } else if (i == 0) {
-                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
-                } else if (i == Board.getTerminal().getTerminalSize().getColumns() - 1) {
-                    Board.getTerminal().newTextGraphics().putString(i, j, "X");
-                }
-            }
-        }
-    }*/
+
 }

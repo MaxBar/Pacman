@@ -12,17 +12,14 @@ public class Enemy implements IEntity {
     private int x;
     private int y;
     private char string;
-<<<<<<< HEAD
     private TextColor color;
-=======
 
->>>>>>> 33543f8fcc7ce255181576ca2dd07d96d431a3ae
 
-    public Enemy(int x, int y) {
+    public Enemy(int x, int y, TextColor color, char string) {
         this.x = x;
         this.y = y;
-        color = new TextColor.RGB(0,255,0);
-        string = '\u2622';
+        this.color = color;
+        this.string = string;
     }
     
     public void movement(Player player) throws IOException {

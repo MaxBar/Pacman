@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.Entities.Player;
 
 import java.io.IOException;
 

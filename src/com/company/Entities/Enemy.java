@@ -10,7 +10,7 @@ public class Enemy implements IEntity {
     private int x;
     private int y;
     private char string;
-    
+
 
     public Enemy(int x, int y) {
         this.x = x;
@@ -48,6 +48,13 @@ public class Enemy implements IEntity {
         char cc = c.getCharacter();
         System.out.println(cc);
         if (cc == string) {
+            x = oldx;
+            y = oldy;
+        }
+        c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        cc = c.getCharacter();
+        System.out.println(cc);
+        if (cc == Wall.getChar()) {
             x = oldx;
             y = oldy;
         }

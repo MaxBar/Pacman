@@ -126,9 +126,7 @@ public class PlayState extends GameState {
             else
             enemies[i].movement(player);
         }
-        for (Enemy e : enemies) {
-            e.movement(player);
-        }
+        
     }
     
 

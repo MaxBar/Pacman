@@ -12,6 +12,7 @@ import java.io.IOException;
 public class BitcoinEnemy extends Enemy implements IEntity {
     private Collision collision;
     private char string;
+
     public BitcoinEnemy(int x, int y, TextColor color, char string) throws IOException {
         super(x, y, color, string);
         collision = new Collision();

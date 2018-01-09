@@ -3,18 +3,19 @@ package com.company.Entities;
 import com.company.Board;
 import com.company.Collision;
 import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor;
 
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomEnemy extends Enemy implements IEntity {
     private Collision collision;
-    private String string;
+    private char string;
 
-    public RandomEnemy(int x, int y) {
-        super(x, y);
-        string = "\u2622";
+    public RandomEnemy(int x, int y, TextColor color, char string) throws IOException {
+        super(x, y, color, string);
         collision = new Collision();
+        this.string = string;
     }
     
     @Override
@@ -73,7 +74,7 @@ public class RandomEnemy extends Enemy implements IEntity {
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);
-        if (cc == string.toCharArray()[0]) {
+        if (cc == string) {
             setX(oldX);
             setY(oldY);
         }

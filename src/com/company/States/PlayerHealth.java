@@ -21,11 +21,11 @@ public class PlayerHealth {
     public static void removeHealth() throws IOException {
         health = health - 1;
         if (health == 0) {
-            gameOver.changeState(MenuState.getInstance());
+            //gameOver.changeState(MenuState.getInstance());
         }
     }
 
     public static void displayHealth() throws IOException {
-        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 6, (Board.getTerminal().getTerminalSize().getRows()) - 1, "Health:" + health);
+        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) + 40, (Board.getTerminal().getTerminalSize().getRows()) - 29, "Health:" + health);
     }
 }

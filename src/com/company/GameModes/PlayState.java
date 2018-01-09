@@ -94,7 +94,7 @@ public class PlayState extends GameState {
         wall.update();
         player.update();
         bitcoin.update();
-        points.update();
+        points.writePoints();
         for (int i = 0; i < enemies.length; ++i) {
             enemies[i].update();
 

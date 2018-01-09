@@ -2,11 +2,12 @@ package com.company.Entities;
 
 import com.company.Board;
 import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor;
 
 import java.io.IOException;
 
 public class FastEnemy extends Enemy implements IEntity {
-    private String string;
+    private char string;
 
     @Override
     public int getX(){
@@ -25,15 +26,15 @@ public class FastEnemy extends Enemy implements IEntity {
         super.setY(y);
     }
 
-    public FastEnemy(int x, int y) {
-        super(x , y);
-        string = "\u2622";
+    public FastEnemy(int x, int y, TextColor color, char string) {
+        super(x, y, color, string);
+        this.string = string;
     }
 
     public void movement(Player player) throws IOException {
         int oldx = getX();
         int oldy = getY();
-        if (Math.random() < 0.8) {
+        if (Math.random() < 0.6) {
             if (player.getX() < this.getX()) {
                 setX(getX() - 1);
                 if (player.getY() < getY()) {
@@ -64,7 +65,7 @@ public class FastEnemy extends Enemy implements IEntity {
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);
-        if (cc == string.toCharArray()[0]) {
+        if (cc == string) {
             setX(oldx);
             setY(oldy);
         }

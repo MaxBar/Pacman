@@ -10,54 +10,52 @@ import java.awt.*;
 import java.io.IOException;
 
 public class BitcoinEnemy extends Enemy implements IEntity {
-    private String string;
     private Collision collision;
+    private char string;
 
-    TextColor color = new TextColor.RGB(100,0,0);
-
-    public BitcoinEnemy(int x, int y) throws IOException {
-        super(x, y);
-        Board.getTerminal().setForegroundColor(color);
-        string = "\u2622";
+    public BitcoinEnemy(int x, int y, TextColor color, char string) throws IOException {
+        super(x, y, color, string);
         collision = new Collision();
+        this.string = string;
     }
+
     @Override
     public void movement(Bitcoin bitcoin) throws IOException {
         int oldx = getX();
         int oldy = getY();
 
-        if (Math.random() < 0.75) {
+        if (Math.random() < 0.50) {
             if (bitcoin.getX() < getX()) {
-                setX(getX()-1);
+                setX(getX() - 1);
                 if (bitcoin.getY() < getY()) {
-                    setY(getY()-1);
+                    setY(getY() - 1);
                 } else if (bitcoin.getY() > getY()) {
-                    setY(getY()+1);
+                    setY(getY() + 1);
                 }
             } else if (bitcoin.getX() > getX()) {
-                setX(getX()+1);
+                setX(getX() + 1);
                 if (bitcoin.getY() < getY()) {
-                    setY(getY()-1);
+                    setY(getY() - 1);
                 } else if (bitcoin.getY() > getY()) {
-                    setY(getY()+1);
+                    setY(getY() + 1);
                 }
             } else if (bitcoin.getX() == x) {
                 if (bitcoin.getY() < getY()) {
-                    setY(getY()-1);
+                    setY(getY() - 1);
                 } else if (bitcoin.getY() > getY()) {
-                    setY(getY()+1);
+                    setY(getY() + 1);
                 }
             }
         }
 
-        if (collision.isBitcoinCollisionDetected(this, bitcoin)){
+        if (collision.isBitcoinCollisionDetected(this, bitcoin)) {
             bitcoin.newBitcoin();
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);
-        if (cc == string.toCharArray()[0]) {
+        if (cc == string) {
             setX(oldx);
             setY(oldy);
         }

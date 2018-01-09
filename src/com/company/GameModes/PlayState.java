@@ -3,6 +3,7 @@ package com.company.GameModes;
 import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Entities.*;
+import com.company.GameScore;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
 import com.googlecode.lanterna.TextColor;
@@ -20,6 +21,7 @@ public class PlayState extends GameState {
     private Bitcoin bitcoin;
     private int amount;
     private Wall wall;
+    private GameScore points;
     
     @Override
     public void init() throws IOException {
@@ -92,6 +94,7 @@ public class PlayState extends GameState {
         wall.update();
         player.update();
         bitcoin.update();
+        points.update();
         for (int i = 0; i < enemies.length; ++i) {
             enemies[i].update();
 

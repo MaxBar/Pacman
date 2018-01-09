@@ -9,10 +9,10 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Enemy implements IEntity {
-    private int x;
-    private int y;
-    private char string;
-    private TextColor color;
+    protected int x;
+    protected int y;
+    protected char string;
+    protected TextColor color;
 
 
     public Enemy(int x, int y, TextColor color, char string) {

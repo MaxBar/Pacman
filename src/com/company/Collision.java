@@ -4,7 +4,6 @@ import com.company.Entities.*;
 
 import java.io.IOException;
 
-import static com.company.GameScore.addPlayerPoint;
 
 public class Collision {
     public static boolean isEnemyCollisionDetected(Enemy enemy, Player player) {

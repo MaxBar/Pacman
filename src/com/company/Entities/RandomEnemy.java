@@ -78,6 +78,7 @@ public class RandomEnemy extends Enemy implements IEntity {
             setX(oldX);
             setY(oldY);
         }
+        
     }
     
     @Override

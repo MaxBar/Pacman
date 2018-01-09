@@ -69,6 +69,13 @@ public class FastEnemy extends Enemy implements IEntity {
             setX(oldx);
             setY(oldy);
         }
+        c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        cc = c.getCharacter();
+        System.out.println(cc);
+        if (cc == Wall.getChar()) {
+            super.x = oldx;
+            super.y = oldy;
+        }
     }
 
 }

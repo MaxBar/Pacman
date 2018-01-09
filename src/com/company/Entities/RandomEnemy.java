@@ -20,8 +20,8 @@ public class RandomEnemy extends Enemy implements IEntity {
     
     @Override
     public void movement(Player player) throws IOException {
-        int oldX = x;
-        int oldY = y;
+        int oldX = super.x;
+        int oldY = super.y;
         int min = 1;
         int max = 5;
         int newPos = ThreadLocalRandom.current().nextInt(min, max);
@@ -71,14 +71,14 @@ public class RandomEnemy extends Enemy implements IEntity {
         }*/
         
         
-        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();
         System.out.println(cc);
         if (cc == string) {
             setX(oldX);
             setY(oldY);
         }
-        
+
     }
     
     @Override

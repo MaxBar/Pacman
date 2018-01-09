@@ -40,7 +40,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
                 } else if (bitcoin.getY() > getY()) {
                     setY(getY() + 1);
                 }
-            } else if (bitcoin.getX() == x) {
+            } else if (bitcoin.getX() == super.x) {
                 if (bitcoin.getY() < getY()) {
                     setY(getY() - 1);
                 } else if (bitcoin.getY() > getY()) {
@@ -54,14 +54,14 @@ public class BitcoinEnemy extends Enemy implements IEntity {
             GameScore.removePoint();
         }
 
-        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();
         System.out.println(cc);
         if (cc == string) {
             setX(oldx);
             setY(oldy);
         }
-        c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
+        c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         cc = c.getCharacter();
         System.out.println(cc);
         if (cc == Wall.getChar()) {

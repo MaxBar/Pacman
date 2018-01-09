@@ -13,7 +13,10 @@ public class GameScore {
     }
 
     public static void addPlayerPoint() throws IOException {
-        points++;
+        points = points + 100;
+    }
+    public static void removePoint() throws IOException {
+        points = points - 50;
     }
 
     public static void writePoints() throws IOException {

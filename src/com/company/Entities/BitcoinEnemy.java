@@ -3,6 +3,7 @@ package com.company.Entities;
 import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Collision;
+import com.company.GameScore;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 
@@ -50,6 +51,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
 
         if (collision.isBitcoinCollisionDetected(this, bitcoin)) {
             bitcoin.newBitcoin();
+            GameScore.removePoint();
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);

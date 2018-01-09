@@ -8,7 +8,6 @@ import com.company.States.GameState;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
 
-import javax.xml.soap.Text;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 

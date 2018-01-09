@@ -16,7 +16,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
         string = "\u2622";
         collision = new Collision();
     }
-
+    @Override
     public void movement(Bitcoin bitcoin) throws IOException {
         int oldx = getX();
         int oldy = getY();

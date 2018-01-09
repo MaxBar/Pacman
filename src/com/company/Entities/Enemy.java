@@ -53,7 +53,7 @@ public class Enemy implements IEntity {
     }
     
     public void movement(Bitcoin bitcoin) throws IOException {
-        int oldx = x;
+        /*int oldx = x;
         int oldy = y;
         if (Math.random() < 0.3) {
             if (bitcoin.getX() < this.x) {
@@ -84,7 +84,7 @@ public class Enemy implements IEntity {
         if (cc == string.toCharArray()[0]) {
             x = oldx;
             y = oldy;
-        }
+        }*/
     }
     
     public void update() throws IOException {

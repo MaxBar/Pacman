@@ -12,12 +12,11 @@ import java.io.IOException;
 public class BitcoinEnemy extends Enemy implements IEntity {
     private String string;
     private Collision collision;
-
-    TextColor color = new TextColor.RGB(100,0,0);
+    private TextColor color;
 
     public BitcoinEnemy(int x, int y) throws IOException {
         super(x, y);
-        Board.getTerminal().setForegroundColor(color);
+        color = new TextColor.RGB(255,0,0);
         string = "\u2622";
         collision = new Collision();
     }

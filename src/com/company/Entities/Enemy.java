@@ -3,18 +3,21 @@ package com.company.Entities;
 import com.company.Bitcoin;
 import com.company.Board;
 import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Enemy implements IEntity {
     private int x;
     private int y;
     private char string;
-    
+    private TextColor color;
 
     public Enemy(int x, int y) {
         this.x = x;
         this.y = y;
+        color = new TextColor.RGB(0,255,0);
         string = '\u2622';
     }
     
@@ -56,8 +59,10 @@ public class Enemy implements IEntity {
     public void movement(Bitcoin bitcoin) throws IOException {}
 
     public void update() throws IOException {
+        Board.getTerminal().setForegroundColor(color);
         Board.getTerminal().setCursorPosition(x,y);
         Board.getTerminal().putCharacter(string);
+        Board.getTerminal().setForegroundColor(TextColor.ANSI.DEFAULT);
     }
     
     public int getX() { return x; }

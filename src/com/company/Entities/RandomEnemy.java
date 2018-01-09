@@ -10,8 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RandomEnemy extends Enemy implements IEntity {
     private Collision collision;
     private String string;
-    
-    
+
     public RandomEnemy(int x, int y) {
         super(x, y);
         string = "\u2622";

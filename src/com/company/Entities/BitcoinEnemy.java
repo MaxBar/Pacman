@@ -13,7 +13,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
     private String string;
     private Collision collision;
 
-    TextColor color = new TextColor.RGB(0,255,0);
+    TextColor color = new TextColor.RGB(100,0,0);
 
     public BitcoinEnemy(int x, int y) throws IOException {
         super(x, y);

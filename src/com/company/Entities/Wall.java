@@ -12,8 +12,8 @@ public class Wall implements IEntity {
     private int size = 20;
 
     public Wall() throws IOException {
-        x = ThreadLocalRandom.current().nextInt(0, Board.getColumns());
-        y = ThreadLocalRandom.current().nextInt(4, Board.getRows());
+        x = ThreadLocalRandom.current().nextInt(10, Board.getColumns()-10);
+        y = ThreadLocalRandom.current().nextInt(10, Board.getRows()-10);
         int chance = ThreadLocalRandom.current().nextInt(0, 10);
         //if (chance < 5) {
             for (int i = 0; i < size; i++) {

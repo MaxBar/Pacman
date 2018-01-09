@@ -10,7 +10,7 @@ public class Enemy implements IEntity {
     private int x;
     private int y;
     private String string;
-    
+
     public Enemy(int x, int y) {
         this.x = x;
         this.y = y;
@@ -86,7 +86,7 @@ public class Enemy implements IEntity {
             y = oldy;
         }
     }
-    
+
     public void update() throws IOException {
         Board.getTerminal().newTextGraphics().putString(x, y, string);
     }

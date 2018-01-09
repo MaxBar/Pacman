@@ -4,15 +4,20 @@ import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Collision;
 import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class BitcoinEnemy extends Enemy implements IEntity {
     private String string;
     private Collision collision;
 
-    public BitcoinEnemy(int x, int y) {
+    TextColor color = new TextColor.RGB(0,255,0);
+
+    public BitcoinEnemy(int x, int y) throws IOException {
         super(x, y);
+        Board.getTerminal().setForegroundColor(color);
         string = "\u2622";
         collision = new Collision();
     }

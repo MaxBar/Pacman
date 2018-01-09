@@ -35,8 +35,9 @@ public class Main {
             deltaTime = deltaTime + (now - time);
             time = now;
             System.out.println(deltaTime);*/
-            System.out.println(DeltaTime.getDeltaTime());
+            System.out.println(DeltaTime.getFPS());
             if(DeltaTime.getDeltaTime() > DeltaTime.getFPS()) {
+                //System.out.println(DeltaTime.getDeltaTime());
                 //Board.getTerminal().newTextGraphics().putString(20, 20, Double.toString(elapsedTime));
                 game.handleEvents();
                 game.update();

@@ -3,19 +3,19 @@ package com.company;
 public class DeltaTime {
     private static long last_time;
     private static long time;
-    private static float deltaTime;
+    private static int deltaTime;
     private static int fps;
     private static double elapsedTime;
+    //private static int second = 100;
+    //private static int frames = 2;
     
     public DeltaTime() {
         last_time = System.nanoTime();
-        time = last_time;
-        deltaTime = 0;
-        fps = 1000/60;
+        fps = 50;//second / frames;
         elapsedTime = 0;
     }
     
-    public static float getDeltaTime() {
+    public static int getDeltaTime() {
         time = System.nanoTime();
         deltaTime = (int)((time - last_time) / 1000000) + deltaTime;
         last_time = time;
@@ -27,6 +27,12 @@ public class DeltaTime {
     }
     
     public static int getFPS() {
+        System.out.println(fps);
         return fps;
+    }
+    
+    public static double getElapsedTime() {
+        elapsedTime += deltaTime;
+        return elapsedTime;
     }
 }

@@ -9,12 +9,13 @@ import java.io.IOException;
 public class Enemy implements IEntity {
     private int x;
     private int y;
-    private String string;
+    private char string;
+    
 
     public Enemy(int x, int y) {
         this.x = x;
         this.y = y;
-        string = "\u2622";
+        string = '\u2622';
     }
     
     public void movement(Player player) throws IOException {
@@ -46,49 +47,17 @@ public class Enemy implements IEntity {
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);
-        if (cc == string.toCharArray()[0]) {
+        if (cc == string) {
             x = oldx;
             y = oldy;
         }
     }
     
-    public void movement(Bitcoin bitcoin) throws IOException {
-        /*int oldx = x;
-        int oldy = y;
-        if (Math.random() < 0.3) {
-            if (bitcoin.getX() < this.x) {
-                x -= 1;
-                if (bitcoin.getY() < y) {
-                    y -= 1;
-                } else if (bitcoin.getY() > y) {
-                    y += 1;
-                }
-            } else if (bitcoin.getX() > this.x) {
-                x += 1;
-                if (bitcoin.getY() < y) {
-                    y -= 1;
-                } else if (bitcoin.getY() > y) {
-                    y += 1;
-                }
-            } else if (bitcoin.getX() == x) {
-                if (bitcoin.getY() < y) {
-                    y -= 1;
-                } else if (bitcoin.getY() > y) {
-                    y += 1;
-                }
-            }
-        }
-        TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
-        char cc = c.getCharacter();
-        System.out.println(cc);
-        if (cc == string.toCharArray()[0]) {
-            x = oldx;
-            y = oldy;
-        }*/
-    }
+    public void movement(Bitcoin bitcoin) throws IOException {}
 
     public void update() throws IOException {
-        Board.getTerminal().newTextGraphics().putString(x, y, string);
+        Board.getTerminal().setCursorPosition(x,y);
+        Board.getTerminal().putCharacter(string);
     }
     
     public int getX() { return x; }

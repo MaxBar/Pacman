@@ -25,7 +25,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
         int oldx = getX();
         int oldy = getY();
 
-        if (Math.random() < 0.75) {
+        if (Math.random() < 0.50) {
             if (bitcoin.getX() < getX()) {
                 setX(getX()-1);
                 if (bitcoin.getY() < getY()) {

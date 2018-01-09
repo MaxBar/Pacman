@@ -33,7 +33,7 @@ public class FastEnemy extends Enemy implements IEntity {
     public void movement(Player player) throws IOException {
         int oldx = getX();
         int oldy = getY();
-        if (Math.random() < 0.8) {
+        if (Math.random() < 0.6) {
             if (player.getX() < this.getX()) {
                 setX(getX() - 1);
                 if (player.getY() < getY()) {

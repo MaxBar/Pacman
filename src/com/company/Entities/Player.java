@@ -3,6 +3,7 @@ package com.company.Entities;
 import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Collision;
+import com.company.GameScore;
 import com.googlecode.lanterna.TextCharacter;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class Player implements IEntity {
         }
         if (Collision.isBitcoinCollisionDetected(this, bitcoin)){
             bitcoin.newBitcoin();
+            GameScore.addPlayerPoint();
         }
 
 

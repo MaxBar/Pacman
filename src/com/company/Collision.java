@@ -4,13 +4,16 @@ import com.company.Entities.*;
 
 import java.io.IOException;
 
+import static com.company.GameScore.addPlayerPoint;
+
 public class Collision {
     public static boolean isEnemyCollisionDetected(Enemy enemy, Player player) {
         return enemy.getX() == player.getX() && enemy.getY() == player.getY();
     }
     
-    public static boolean isBitcoinCollisionDetected(Player player, Bitcoin bitcoin) {
+    public static boolean isBitcoinCollisionDetected(Player player, Bitcoin bitcoin) throws IOException {
         return player.getY() == bitcoin.getY() && player.getX() == bitcoin.getX();
+
     }
     
     public static boolean isBitcoinCollisionDetected(Enemy enemy, Bitcoin bitcoin) {

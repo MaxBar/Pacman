@@ -12,7 +12,7 @@ public class Board extends Object{
     private static int offset;
     
     public Board() throws IOException {
-        terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(100, 30)).createTerminal();
+        terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(150, 45)).createTerminal();
         terminal.setCursorVisible(false);
         origin = 0;
         offset = 4;

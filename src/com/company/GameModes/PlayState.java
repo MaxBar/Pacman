@@ -104,6 +104,8 @@ public class PlayState extends GameState {
 
             if (PlayerHealth.getHealth() == 0) {
                 game.changeState(MenuState.getInstance()); //Tillfälligt
+                PlayerHealth.setHealth();
+                GameScore.setGameScore();
             }
 
             //collision.update(enemies[i], player);

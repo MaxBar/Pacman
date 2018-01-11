@@ -1,13 +1,9 @@
 package com.company.States;
 
 import com.company.Board;
-import com.company.Collision;
-import com.company.GameModes.MenuState;
-
 import java.io.IOException;
 
 public class PlayerHealth {
-    private GameState gameOver;
     private static int health = 3;
 
     public PlayerHealth() throws IOException {
@@ -20,9 +16,11 @@ public class PlayerHealth {
 
     public static void removeHealth() throws IOException {
         health = health - 1;
-        if (health == 0) {
-            //gameOver.changeState(MenuState.getInstance());
-        }
+
+    }
+
+    public static int getHealth () {
+        return health;
     }
 
     public static void displayHealth() throws IOException {

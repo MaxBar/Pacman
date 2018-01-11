@@ -22,6 +22,10 @@ public class GameScore {
         points = points - 50;
     }
 
+    public static void setGameScore () {
+        points = 0;
+    }
+
     public static void writePoints() throws IOException {
         Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 6, (Board.getTerminal().getTerminalSize().getRows()) - 29, "Points:" + points);
     }

@@ -32,8 +32,6 @@ public class Player implements IEntity {
             GameScore.addPlayerPoint();
         }
 
-
-
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);

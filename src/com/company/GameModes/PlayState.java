@@ -6,6 +6,7 @@ import com.company.Entities.*;
 import com.company.GameScore;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
+import com.company.States.PlayerHealth;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
 
@@ -22,6 +23,7 @@ public class PlayState extends GameState {
     private int amount;
     private Wall wall;
     private GameScore points;
+    private PlayerHealth health;
     
     @Override
     public void init() throws IOException {
@@ -95,13 +97,13 @@ public class PlayState extends GameState {
         player.update();
         bitcoin.update();
         points.writePoints();
+        health.displayHealth();
         for (int i = 0; i < enemies.length; ++i) {
             enemies[i].update();
 
             //collision.update(enemies[i], player);
             if (player.getX() == enemies[i].getX() && player.getY() == enemies[i].getY()) {
                 System.out.println("hit");
-                game.changeState(MenuState.getInstance());
             }
         }
     }

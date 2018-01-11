@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.States.PlayerHealth;
 
 import java.io.IOException;
 
@@ -8,11 +9,14 @@ public class GameScore {
 
     public GameScore() throws IOException {
         points = 0;
-
     }
 
     public static void addPlayerPoint() throws IOException {
         points = points + 100;
+
+        if ((points == 500) || (points == 750) || (points == 1000)){
+            PlayerHealth.addHealth();
+        }
     }
     public static void removePoint() throws IOException {
         points = points - 50;

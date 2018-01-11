@@ -3,6 +3,7 @@ package com.company.GameModes;
 import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Entities.*;
+import com.company.GameOverState;
 import com.company.GameScore;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
@@ -24,11 +25,11 @@ public class PlayState extends GameState {
     private Wall wall;
     private GameScore points;
     private PlayerHealth health;
-    
+
     @Override
     public void init() throws IOException {
         amount = 4;
-        
+
         // Playfield
         Board.printField();
         
@@ -101,10 +102,15 @@ public class PlayState extends GameState {
         for (int i = 0; i < enemies.length; ++i) {
             enemies[i].update();
 
-            //collision.update(enemies[i], player);
-            if (player.getX() == enemies[i].getX() && player.getY() == enemies[i].getY()) {
-                System.out.println("hit");
+            if (PlayerHealth.getHealth() == 0) {
+                game.changeState(MenuState.getInstance()); //Tillfälligt
             }
+
+            //collision.update(enemies[i], player);
+            /*if (player.getX() == enemies[i].getX() && player.getY() == enemies[i].getY()) {
+                //game.changeState(MenuState.getInstance());
+                System.out.println("hit");
+            }*/
         }
     }
     

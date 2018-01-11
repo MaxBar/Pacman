@@ -2,6 +2,8 @@ package com.company.Entities;
 
 import com.company.Bitcoin;
 import com.company.Board;
+import com.company.Collision;
+import com.company.States.PlayerHealth;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 
@@ -13,6 +15,7 @@ public class Enemy implements IEntity {
     protected int y;
     protected char string;
     protected TextColor color;
+    private Collision collision;
 
 
     public Enemy(int x, int y, TextColor color, char string) {
@@ -48,6 +51,11 @@ public class Enemy implements IEntity {
                 }
             }
         }
+        if(collision.isEnemyCollisionDetected(this, player)) {
+            PlayerHealth.removeHealth();
+            System.out.println("Hit player");
+        }
+
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
         System.out.println(cc);

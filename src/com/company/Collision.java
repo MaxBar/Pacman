@@ -37,4 +37,23 @@ public class Collision {
         
         return isOutofBounds;
     }
+
+    public static boolean isOutofBounds(Enemy enemy) throws IOException {
+        boolean isOutofBounds = false;
+
+        if(enemy.getX() >= Board.getTerminal().getTerminalSize().getColumns() - 1) {
+            isOutofBounds = true;
+        }
+        if(enemy.getY() >= Board.getTerminal().getTerminalSize().getRows() - 1) {
+            isOutofBounds = true;
+        }
+        if(enemy.getX() <= 0) {
+            isOutofBounds = true;
+        }
+        if(enemy.getY() <= 0) {
+            isOutofBounds = true;
+        }
+
+        return isOutofBounds;
+    }
 }

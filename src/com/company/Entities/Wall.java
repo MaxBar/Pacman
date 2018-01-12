@@ -9,7 +9,7 @@ public class Wall implements IEntity {
     private int x;
     private int y;
     private static final char wallChar = '\u2588';
-    private int size = 20;
+    private int size;
 
     public Wall() throws IOException {
         x = ThreadLocalRandom.current().nextInt(10, Board.getColumns()-10);
@@ -20,7 +20,7 @@ public class Wall implements IEntity {
                 Board.getTerminal().setCursorPosition(x + i, y);
                 Board.getTerminal().putCharacter(wallChar);
             }
-
+        size = 20;
     }
     public void update() throws IOException {
         for (int i = 0; i < size; i++) {

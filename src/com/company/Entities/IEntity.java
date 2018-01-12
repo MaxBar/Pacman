@@ -1,5 +1,7 @@
 package com.company.Entities;
 
+import java.io.IOException;
+
 public interface IEntity {
     int x = 0;
     int y = 0;
@@ -11,4 +13,6 @@ public interface IEntity {
     int getY();
     
     void setY(int y);
+
+    void update() throws IOException;
 }

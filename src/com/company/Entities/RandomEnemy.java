@@ -44,8 +44,12 @@ public class RandomEnemy extends Enemy implements IEntity {
         if(collision.isEnemyCollisionDetected(this, player)) {
             PlayerHealth.removeHealth();
         }
-        
-        
+
+        if(Collision.isOutofBounds(this)) {
+            super.x = oldX;
+            super.y = oldY;
+        }
+
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();
         if (cc == string) {

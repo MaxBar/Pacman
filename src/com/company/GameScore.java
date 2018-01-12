@@ -3,12 +3,15 @@ package com.company;
 import com.company.States.PlayerHealth;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class GameScore {
+public class GameScore implements Serializable{
     private static int points = 0;
+    private String name;     //Nytt
 
-    public GameScore() throws IOException {
-        points = 0;
+    public GameScore(String name, int points) throws IOException {
+        this.points = points;
+        this.name = name;     //Nytt
     }
 
     public static void addPlayerPoint() throws IOException {
@@ -29,6 +32,15 @@ public class GameScore {
     public static void writePoints() throws IOException {
         Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 6, (Board.getTerminal().getTerminalSize().getRows()) - 44, "Points:" + points);
     }
+
+    public int getGameScore() {     //Nytt
+        return points;
+    }
+
+    public String getName() {     //Nytt
+        return name;
+    }
+
 }
 
 

@@ -1,11 +1,7 @@
 package com.company.Entities;
 
-import com.company.Board;
-import com.company.Collision;
-import com.company.GameScore;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.TextColor;
-
+import com.company.*;
+import com.googlecode.lanterna.*;
 import java.io.IOException;
 
 public class BitcoinEnemy extends Enemy implements IEntity {
@@ -48,21 +44,19 @@ public class BitcoinEnemy extends Enemy implements IEntity {
             }
         }
 
-        if (collision.isBitcoinCollisionDetected(this, bitcoin)) {
+        if (Collision.isBitcoinCollisionDetected(this, bitcoin)) {
             bitcoin.newBitcoin();
             GameScore.removePoint();
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == string) {
             setX(oldx);
             setY(oldy);
         }
         c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == Wall.getChar()) {
             super.x = oldx;
             super.y = oldy;

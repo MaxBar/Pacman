@@ -52,9 +52,6 @@ public class GameOverState extends GameState {
         Board.getTerminal().flush();
     }
 
-    public void GameOver(GameEngine game) throws IOException {
-        game.changeState(MenuState.getInstance());
-    }
     public static GameOverState getInstance() {
         if (gameOverState == null) {
             gameOverState = new GameOverState();

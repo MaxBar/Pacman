@@ -12,7 +12,6 @@ public class Enemy implements IEntity {
     protected int y;
     protected char string;
     protected TextColor color;
-    private Collision collision;
     private float probabilityOfMoving;
 
 
@@ -50,21 +49,18 @@ public class Enemy implements IEntity {
                 }
             }
         }
-        if(collision.isEnemyCollisionDetected(this, player)) {
+        if(Collision.isEnemyCollisionDetected(this, player)) {
             PlayerHealth.removeHealth();
-            System.out.println("Hit player");
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == string) {
             x = oldx;
             y = oldy;
         }
         c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == Wall.getChar()) {
             x = oldx;
             y = oldy;

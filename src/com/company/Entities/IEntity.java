@@ -4,11 +4,11 @@ public interface IEntity {
     int x = 0;
     int y = 0;
     
-    public int getX();
+    int getX();
     
-    public void setX(int x);
+    void setX(int x);
     
-    public int getY();
+    int getY();
     
-    public void setY(int y);
+    void setY(int y);
 }

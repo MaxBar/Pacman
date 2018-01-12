@@ -6,9 +6,7 @@ public class DeltaTime {
     private static int deltaTime;
     private static int fps;
     private static double elapsedTime;
-    //private static int second = 100;
-    //private static int frames = 2;
-    
+
     public DeltaTime() {
         last_time = System.nanoTime();
         fps = 50;//second / frames;
@@ -27,7 +25,6 @@ public class DeltaTime {
     }
     
     public static int getFPS() {
-        System.out.println(fps);
         return fps;
     }
     

@@ -1,8 +1,6 @@
 package com.company.Entities;
 
-import com.company.Board;
-import com.company.Collision;
-import com.company.GameScore;
+import com.company.*;
 import com.googlecode.lanterna.TextCharacter;
 
 import java.io.IOException;
@@ -33,7 +31,6 @@ public class Player implements IEntity {
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == Wall.getChar()) {
             this.x = oldx;
             this.y = oldy;

@@ -36,7 +36,7 @@ public class PlayState extends GameState {
         enemies = new Enemy[amount];
         enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.GREEN,'\u2622', 0.7f);//Fast
         enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.BLUE,'\u2744', 0.5f);//Random
-        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.RED,'\u262D');
+        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.RED,'\u262D'); //BitcoinEnemy
         enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.WHITE,'\u262F', 0.3f);//Normal
         
         for (int i = 0; i < enemies.length; i++) {
@@ -105,17 +105,13 @@ public class PlayState extends GameState {
 
             if (PlayerHealth.getHealth() == 0) {
                 Board.getTerminal().clearScreen();
-                game.changeState(GameOverState.getInstance()); //Tillfälligt
+                game.changeState(GameOverState.getInstance());
                 PlayerHealth.setHealth();
                 GameScore.setGameScore();
                 break;
             }
 
-            //collision.update(enemies[i], player);
-            /*if (player.getX() == enemies[i].getX() && player.getY() == enemies[i].getY()) {
-                //game.changeState(MenuState.getInstance());
-                System.out.println("hit");
-            }*/
+
         }
     }
     

@@ -20,12 +20,7 @@ public class Wall implements IEntity {
                 Board.getTerminal().setCursorPosition(x + i, y);
                 Board.getTerminal().putCharacter(wallChar);
             }
-        /*} else {
-            for (int i = 0; i < size; i++) {
-                Board.getTerminal().setCursorPosition(x, y + i);
-                Board.getTerminal().putCharacter(wallChar);
-            }
-        }*/
+
     }
     public void update() throws IOException {
         for (int i = 0; i < size; i++) {

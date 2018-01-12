@@ -11,7 +11,6 @@ public class GameEngine {
     public void init() {
         states = new ArrayList<>();
         running = true;
-        System.out.printf("GameEngine init\n");
     }
     
     // Byter state från ett till ett annat och rensar det gamla statet och lägger till det nya
@@ -23,7 +22,6 @@ public class GameEngine {
         states.add(state);
         states.get(states.size() - 1).init();
         
-        System.out.printf("GameEngine changestate");
     }
     
     // Lägger till statet som skickas in i arrayn

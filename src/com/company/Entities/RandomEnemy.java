@@ -1,10 +1,7 @@
 package com.company.Entities;
 
-import com.company.Board;
-import com.company.Collision;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.TextColor;
-
+import com.company.*;
+import com.googlecode.lanterna.*;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -46,13 +43,11 @@ public class RandomEnemy extends Enemy implements IEntity {
         }
         if(collision.isEnemyCollisionDetected(this, player)) {
             PlayerHealth.removeHealth();
-            System.out.println("Hit player");
         }
         
         
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == string) {
             setX(oldX);
             setY(oldY);
@@ -60,7 +55,6 @@ public class RandomEnemy extends Enemy implements IEntity {
 
         c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == Wall.getChar()) {
             super.x = oldX;
             super.y = oldY;

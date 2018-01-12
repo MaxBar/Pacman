@@ -8,21 +8,14 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bitcoin implements IEntity {
-    int x;
-    int y;
+    private int x;
+    private int y;
 
-    Bitcoin bitcoin;
-    int bitcoinArray[];
     Random random;
     char cc;
 
     public Bitcoin() throws IOException {
         init();
-    }
-
-    public Bitcoin(int x, int y) {
-        this.x = x;
-        this.y = y;
     }
 
     @Override

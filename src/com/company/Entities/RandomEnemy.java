@@ -58,6 +58,14 @@ public class RandomEnemy extends Enemy implements IEntity {
             setY(oldY);
         }
 
+        c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
+        cc = c.getCharacter();
+        System.out.println(cc);
+        if (cc == Wall.getChar()) {
+            super.x = oldX;
+            super.y = oldY;
+        }
+
     }
     
     @Override

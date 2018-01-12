@@ -104,9 +104,11 @@ public class PlayState extends GameState {
             enemies[i].update();
 
             if (PlayerHealth.getHealth() == 0) {
+                Board.getTerminal().clearScreen();
                 game.changeState(GameOverState.getInstance()); //Tillfälligt
                 PlayerHealth.setHealth();
                 GameScore.setGameScore();
+                break;
             }
 
             //collision.update(enemies[i], player);

@@ -49,8 +49,10 @@ public class Bitcoin implements IEntity {
     public void newBitcoin() throws IOException {
         random = new Random();
         do {
-            x = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getColumns()) + 1);
-            y = ThreadLocalRandom.current().nextInt(3, Board.getRows());
+            x = ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns());
+            y = ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows());
+            //x = (int) Math.floor(random.nextInt(Board.getTerminal().getTerminalSize().getColumns()) + 1);
+            //y = ThreadLocalRandom.current().nextInt(3, Board.getRows());
 
             TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
             cc = c.getCharacter();

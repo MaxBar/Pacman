@@ -102,6 +102,9 @@ public class PlayState extends GameState {
         for (int i = 0; i < enemies.length; ++i) {
             enemies[i].update();
 
+            if(health.getHealth() > 0) {
+                health.setHealth(health.getHealth() - 1);
+            }
             if (PlayerHealth.getHealth() == 0) {
                 game.changeState(MenuState.getInstance()); //Tillfälligt
                 PlayerHealth.setHealth();

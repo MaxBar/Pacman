@@ -9,7 +9,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.io.IOException;
 
 import static com.googlecode.lanterna.input.KeyType.Escape;
-import static sun.tools.java.Scanner.EOF;
+//import static sun.tools.java.Scanner.EOF;
 
 public class GameOverState extends GameState {
     private KeyStroke key;

@@ -2,7 +2,6 @@ package com.company.Entities;
 
 import com.company.Board;
 import com.company.Collision;
-import com.company.States.PlayerHealth;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 
@@ -12,11 +11,13 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RandomEnemy extends Enemy implements IEntity {
     private Collision collision;
     private char string;
+    private float probabilityOfMoving;
 
-    public RandomEnemy(int x, int y, TextColor color, char string) throws IOException {
-        super(x, y, color, string);
+    public RandomEnemy(int x, int y, TextColor color, char string, float probabilityOfMoving) throws IOException {
+        super(x, y, color, string, probabilityOfMoving);
         collision = new Collision();
         this.string = string;
+        this.probabilityOfMoving = probabilityOfMoving;
     }
     
     @Override
@@ -27,7 +28,7 @@ public class RandomEnemy extends Enemy implements IEntity {
         int max = 5;
         int newPos = ThreadLocalRandom.current().nextInt(min, max);
         
-        if(Math.random() < 0.5) {
+        if(Math.random() < probabilityOfMoving) {
             switch (newPos) {
                 case 1:
                     super.setX(super.getX() - 1);
@@ -47,30 +48,6 @@ public class RandomEnemy extends Enemy implements IEntity {
             PlayerHealth.removeHealth();
             System.out.println("Hit player");
         }
-        
-        /*if (Math.random() < 0.5) {
-            if (player.getX() < this.x) {
-                x -= 1;
-                if (player.getY() < y) {
-                    y -= 1;
-                } else if (player.getY() > y) {
-                    y += 1;
-                }
-            } else if (player.getX() > this.x) {
-                x += 1;
-                if (player.getY() < y) {
-                    y -= 1;
-                } else if (player.getY() > y) {
-                    y += 1;
-                }
-            } else if (player.getX() == x) {
-                if (player.getY() < y) {
-                    y -= 1;
-                } else if (player.getY() > y) {
-                    y += 1;
-                }
-            }
-        }*/
         
         
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);

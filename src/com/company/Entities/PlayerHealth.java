@@ -1,4 +1,4 @@
-package com.company.States;
+package com.company.Entities;
 
 import com.company.Board;
 import java.io.IOException;

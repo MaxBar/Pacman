@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.States.PlayerHealth;
+import com.company.Entities.PlayerHealth;
 
 import java.io.IOException;
 

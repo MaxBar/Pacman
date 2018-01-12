@@ -1,15 +1,11 @@
-package com.company;
+package com.company.GameModes;
 
-import com.company.GameModes.MenuState;
-import com.company.GameModes.PlayState;
+import com.company.Board;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
-
-import static com.googlecode.lanterna.input.KeyType.Escape;
-//import static sun.tools.java.Scanner.EOF;
 
 public class GameOverState extends GameState {
     private KeyStroke key;
@@ -17,9 +13,10 @@ public class GameOverState extends GameState {
 
     @Override
     public void init() throws IOException {
-        Board.getTerminal().clearScreen();
         Board.getTerminal().enterPrivateMode();
+        Board.getTerminal().clearScreen();
         Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 9, (Board.getTerminal().getTerminalSize().getRows() / 2) - 1, "GAME OVER");
+        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 20, (Board.getTerminal().getTerminalSize().getRows() / 2) + 1, "Space for menu Escape to quit");
     }
 
     @Override
@@ -34,9 +31,9 @@ public class GameOverState extends GameState {
                 break;
             case Character:
                 switch (key.getCharacter()) {
-                    case 'p':
+                    case ' ':
                         Board.getTerminal().clearScreen();
-                        game.changeState(PlayState.getInstance());
+                        game.changeState(MenuState.getInstance());
                         break;
                     case 'q':
                         game.quit();
@@ -52,7 +49,7 @@ public class GameOverState extends GameState {
 
     @Override
     public void draw(GameEngine game) throws IOException {
-
+        Board.getTerminal().flush();
     }
 
     public void GameOver(GameEngine game) throws IOException {

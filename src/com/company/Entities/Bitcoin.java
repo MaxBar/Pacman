@@ -1,6 +1,6 @@
-package com.company;
+package com.company.Entities;
 
-import com.company.Entities.IEntity;
+import com.company.Board;
 import com.googlecode.lanterna.TextCharacter;
 
 import java.io.IOException;

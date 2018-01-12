@@ -1,6 +1,5 @@
 package com.company.Entities;
 
-import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Collision;
 import com.company.GameScore;

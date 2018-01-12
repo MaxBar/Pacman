@@ -57,7 +57,7 @@ public class Bitcoin implements IEntity {
             TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
             cc = c.getCharacter();
 
-        } while (cc != ' ');
+        } while (cc != ' ' && cc == Wall.getChar());
 
     }
 }

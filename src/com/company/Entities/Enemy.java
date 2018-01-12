@@ -1,13 +1,10 @@
 package com.company.Entities;
 
-import com.company.Bitcoin;
 import com.company.Board;
 import com.company.Collision;
-import com.company.States.PlayerHealth;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class Enemy implements IEntity {
@@ -15,20 +12,21 @@ public class Enemy implements IEntity {
     protected int y;
     protected char string;
     protected TextColor color;
-    private Collision collision;
+    private float probabilityOfMoving;
 
 
-    public Enemy(int x, int y, TextColor color, char string) {
+    public Enemy(int x, int y, TextColor color, char string, float probabilityOfMoving) {
         this.x = x;
         this.y = y;
         this.color = color;
         this.string = string;
+        this.probabilityOfMoving = probabilityOfMoving;
     }
     
     public void movement(Player player) throws IOException {
         int oldx = x;
         int oldy = y;
-        if (Math.random() < 0.3) {
+        if (Math.random() < probabilityOfMoving) {
             if (player.getX() < this.x) {
                 x -= 1;
                 if (player.getY() < y) {
@@ -51,21 +49,18 @@ public class Enemy implements IEntity {
                 }
             }
         }
-        if(collision.isEnemyCollisionDetected(this, player)) {
+        if(Collision.isEnemyCollisionDetected(this, player)) {
             PlayerHealth.removeHealth();
-            System.out.println("Hit player");
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         char cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == string) {
             x = oldx;
             y = oldy;
         }
         c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
         cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == Wall.getChar()) {
             x = oldx;
             y = oldy;

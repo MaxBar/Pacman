@@ -1,13 +1,10 @@
 package com.company.GameModes;
 
-import com.company.Bitcoin;
-import com.company.Board;
+import com.company.*;
 import com.company.Entities.*;
-import com.company.GameOverState;
-import com.company.GameScore;
 import com.company.States.GameEngine;
 import com.company.States.GameState;
-import com.company.States.PlayerHealth;
+import com.company.Entities.PlayerHealth;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
 
@@ -25,6 +22,8 @@ public class PlayState extends GameState {
     private Wall wall;
     private GameScore points;
     private PlayerHealth health;
+    private int playerStartX;
+    private int playerStartY;
 
     @Override
     public void init() throws IOException {
@@ -35,10 +34,10 @@ public class PlayState extends GameState {
         
         // Enemies
         enemies = new Enemy[amount];
-        enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.GREEN,'\u2622');//Fast
-        enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.BLUE,'\u2744');//Random
-        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.RED,'\u262D');//Coinchaser
-        enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(0, Board.getColumns()),ThreadLocalRandom.current().nextInt(4, Board.getRows()), TextColor.ANSI.WHITE,'\u262F');//Normal
+        enemies[0] = new FastEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.GREEN,'\u2622', 0.7f);//Fast
+        enemies[1] = new RandomEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.BLUE,'\u2744', 0.5f);//Random
+        enemies[2] = new BitcoinEnemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.RED,'\u262D'); //BitcoinEnemy
+        enemies[3] = new Enemy(ThreadLocalRandom.current().nextInt(Board.borderOrigin(), Board.getColumns()),ThreadLocalRandom.current().nextInt(Board.borderOffset(), Board.getRows()), TextColor.ANSI.WHITE,'\u262F', 0.3f);//Normal
         
         for (int i = 0; i < enemies.length; i++) {
             Board.getTerminal().setCursorPosition(enemies[i].getX(), enemies[i].getY());
@@ -46,7 +45,9 @@ public class PlayState extends GameState {
         }
         
         // Player
-        player = new Player(20, 20);
+        playerStartX = 20;
+        playerStartY = 20;
+        player = new Player(playerStartX, playerStartY);
         Board.getTerminal().setCursorPosition(player.getX(), player.getY());
         Board.getTerminal().putCharacter('\u263A');
         
@@ -103,16 +104,14 @@ public class PlayState extends GameState {
             enemies[i].update();
 
             if (PlayerHealth.getHealth() == 0) {
-                game.changeState(MenuState.getInstance()); //Tillfälligt
+                Board.getTerminal().clearScreen();
+                game.changeState(GameOverState.getInstance());
                 PlayerHealth.setHealth();
                 GameScore.setGameScore();
+                break;
             }
 
-            //collision.update(enemies[i], player);
-            /*if (player.getX() == enemies[i].getX() && player.getY() == enemies[i].getY()) {
-                //game.changeState(MenuState.getInstance());
-                System.out.println("hit");
-            }*/
+
         }
     }
     

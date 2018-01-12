@@ -1,31 +1,26 @@
 package com.company.Entities;
 
-import com.company.Bitcoin;
-import com.company.Board;
-import com.company.Collision;
-import com.company.GameScore;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.TextColor;
-
-import java.awt.*;
+import com.company.*;
+import com.googlecode.lanterna.*;
 import java.io.IOException;
 
 public class BitcoinEnemy extends Enemy implements IEntity {
     private Collision collision;
     private char string;
+    private float probabilityOfMoving;
 
     public BitcoinEnemy(int x, int y, TextColor color, char string) throws IOException {
-        super(x, y, color, string);
+        super(x, y, color, string, 0);
         collision = new Collision();
         this.string = string;
+        probabilityOfMoving = 0.5f;
     }
 
-    @Override
     public void movement(Bitcoin bitcoin) throws IOException {
         int oldx = getX();
         int oldy = getY();
 
-        if (Math.random() < 0.50) {
+        if (Math.random() < probabilityOfMoving) {
             if (bitcoin.getX() < getX()) {
                 setX(getX() - 1);
                 if (bitcoin.getY() < getY()) {
@@ -49,21 +44,19 @@ public class BitcoinEnemy extends Enemy implements IEntity {
             }
         }
 
-        if (collision.isBitcoinCollisionDetected(this, bitcoin)) {
+        if (Collision.isBitcoinCollisionDetected(this, bitcoin)) {
             bitcoin.newBitcoin();
             GameScore.removePoint();
         }
 
         TextCharacter c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         char cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == string) {
             setX(oldx);
             setY(oldy);
         }
         c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
         cc = c.getCharacter();
-        System.out.println(cc);
         if (cc == Wall.getChar()) {
             super.x = oldx;
             super.y = oldy;

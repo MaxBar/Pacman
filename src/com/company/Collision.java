@@ -19,14 +19,6 @@ public class Collision {
         return enemy.getY() == bitcoin.getY() && enemy.getX() == bitcoin.getX();
     }
     
-    /*public boolean isBothEnemyCollisionDetected(Enemy[] enemy) {
-        boolean isCollision = false;
-        for(int i = 0; i < enemy.length; ++i) {
-        
-        }
-        return en
-    }*/
-    
     public static boolean isOutofBounds(Player player) throws IOException {
         boolean isOutofBounds = false;
         
@@ -43,6 +35,25 @@ public class Collision {
             isOutofBounds = true;
         }
         
+        return isOutofBounds;
+    }
+
+    public static boolean isOutofBounds(Enemy enemy) throws IOException {
+        boolean isOutofBounds = false;
+
+        if(enemy.getX() >= Board.getTerminal().getTerminalSize().getColumns() - 1) {
+            isOutofBounds = true;
+        }
+        if(enemy.getY() >= Board.getTerminal().getTerminalSize().getRows() - 1) {
+            isOutofBounds = true;
+        }
+        if(enemy.getX() <= 0) {
+            isOutofBounds = true;
+        }
+        if(enemy.getY() <= 0) {
+            isOutofBounds = true;
+        }
+
         return isOutofBounds;
     }
 }

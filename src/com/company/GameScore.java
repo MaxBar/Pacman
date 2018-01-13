@@ -30,7 +30,7 @@ public class GameScore implements Serializable{
     }
 
     public static void writePoints() throws IOException {
-        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 6, (Board.getTerminal().getTerminalSize().getRows()) - 44, "Points:" + points);
+        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) - 6, 1, "Points:" + points);
     }
 
     public int getGameScore() {     //Nytt

@@ -1,7 +1,5 @@
 package com.company;
 
-import com.company.GameModes.InitState;
-import com.company.States.GameEngine;
 
 import java.io.IOException;
 

@@ -3,7 +3,9 @@ package com.company;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Board extends Object{
@@ -12,7 +14,9 @@ public class Board extends Object{
     private static int offset;
     
     public Board() throws IOException {
-        terminal = new DefaultTerminalFactory().setInitialTerminalSize(new TerminalSize(150, 45)).createTerminal();
+        Font myFont = new Font ("Monospaced", Font.PLAIN, 19);
+        SwingTerminalFontConfiguration cfg = SwingTerminalFontConfiguration.newInstance(myFont);
+        terminal = new DefaultTerminalFactory().setTerminalEmulatorFontConfiguration(cfg).setInitialTerminalSize(new TerminalSize(120, 35)).createTerminal();
         terminal.setCursorVisible(false);
         origin = 0;
         offset = 4;

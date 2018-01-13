@@ -28,6 +28,6 @@ public class PlayerHealth {
     }
 
     public static void displayHealth() throws IOException {
-        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) + 64, (Board.getTerminal().getTerminalSize().getRows()) - 44, "Health:" + health);
+        Board.getTerminal().newTextGraphics().putString(Board.getTerminal().getTerminalSize().getColumns() -20, 1, "Health:" + health);
     }
 }

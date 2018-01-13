@@ -9,11 +9,11 @@ public class BitcoinEnemy extends Enemy implements IEntity {
     private char string;
     private float probabilityOfMoving;
 
-    public BitcoinEnemy(int x, int y, TextColor color, char string) throws IOException {
+    public BitcoinEnemy(int x, int y, TextColor color, char string, float probabilityOfMoving) throws IOException {
         super(x, y, color, string, 0);
         collision = new Collision();
         this.string = string;
-        probabilityOfMoving = 0.5f;
+        this.probabilityOfMoving = probabilityOfMoving;
     }
 
     public void movement(Bitcoin bitcoin) throws IOException {

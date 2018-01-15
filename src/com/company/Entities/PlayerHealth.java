@@ -1,4 +1,4 @@
-package com.company.States;
+package com.company.Entities;
 
 import com.company.Board;
 import java.io.IOException;
@@ -23,7 +23,11 @@ public class PlayerHealth {
         return health;
     }
 
+    public static void setHealth () {
+        health = 3;
+    }
+
     public static void displayHealth() throws IOException {
-        Board.getTerminal().newTextGraphics().putString((Board.getTerminal().getTerminalSize().getColumns() / 2) + 40, (Board.getTerminal().getTerminalSize().getRows()) - 29, "Health:" + health);
+        Board.getTerminal().newTextGraphics().putString(Board.getTerminal().getTerminalSize().getColumns() -20, 1, "Health:" + health);
     }
 }

@@ -8,28 +8,28 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Wall implements IEntity {
     private int x;
     private int y;
+    private int z;
+    private int a;
     private static final char wallChar = '\u2588';
     private int size = 20;
 
     public Wall() throws IOException {
         x = ThreadLocalRandom.current().nextInt(10, Board.getColumns()-10);
         y = ThreadLocalRandom.current().nextInt(10, Board.getRows()-10);
-        int chance = ThreadLocalRandom.current().nextInt(0, 10);
-        //if (chance < 5) {
-            for (int i = 0; i < size; i++) {
-                Board.getTerminal().setCursorPosition(x + i, y);
-                Board.getTerminal().putCharacter(wallChar);
-            }
-        /*} else {
-            for (int i = 0; i < size; i++) {
-                Board.getTerminal().setCursorPosition(x, y + i);
-                Board.getTerminal().putCharacter(wallChar);
-            }
-        }*/
+        z = ThreadLocalRandom.current().nextInt(10, Board.getColumns()-10);
+        a = ThreadLocalRandom.current().nextInt(10, Board.getRows()-10);
+
+        update();
     }
     public void update() throws IOException {
+
         for (int i = 0; i < size; i++) {
             Board.getTerminal().setCursorPosition(x, y+i);
+            if(i!=10)
+            Board.getTerminal().putCharacter(wallChar);
+        }
+        for (int i = 0; i < size*3; i++) {
+            Board.getTerminal().setCursorPosition(z+i, a);
             Board.getTerminal().putCharacter(wallChar);
         }
     }

@@ -55,8 +55,7 @@ public class BitcoinEnemy extends Enemy implements IEntity {
             setX(oldx);
             setY(oldy);
         }
-        c = Board.getTerminal().newTextGraphics().getCharacter(super.x, super.y);
-        cc = c.getCharacter();
+
         if (cc == Wall.getChar()) {
             super.x = oldx;
             super.y = oldy;

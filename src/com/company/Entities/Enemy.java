@@ -59,8 +59,7 @@ public class Enemy implements IEntity {
             x = oldx;
             y = oldy;
         }
-        c = Board.getTerminal().newTextGraphics().getCharacter(x, y);
-        cc = c.getCharacter();
+
         if (cc == Wall.getChar()) {
             x = oldx;
             y = oldy;
